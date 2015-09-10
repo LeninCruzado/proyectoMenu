@@ -1,0 +1,27 @@
+<div id="loginContainer" class="full-height" layout="row" layout-align="center center">
+    <div flex></div>
+    <div flex>
+        <div layout="column" >
+            <div layout="row">
+                <h1 id="title">Menu Order</h1>
+            </div>
+
+            <form name="loginForm">
+                <md-input-container>
+                    <label>Usuario</label>
+                    <input
+                        ng-model="user"
+                        required>
+                </md-input-container>
+                <md-input-container>
+                    <label>First name</label>
+                    <input ng-model="pass" required>
+                </md-input-container>
+                <div class="Center">
+                    <md-button class="md-default" ng-disabled="loginForm.$invalid" ui-sref="gestionar">Ingresar</md-button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div flex></div>
+</div>

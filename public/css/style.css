@@ -1,0 +1,23 @@
+.full-height{
+    height: 100%;
+}
+#loginContainer{
+    background-color: #00838F;
+    color: white;
+}
+#template{
+    background-color: rgb(131, 82, 180);
+}
+#img-login{
+    width: 50%;
+    height: 50%;
+}
+.block-content{
+    padding: 24px;
+}
+label, md-input-container .md-input{
+    color: white !important;
+}
+.Center{
+    text-align: center;
+}

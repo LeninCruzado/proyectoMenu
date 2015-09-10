@@ -1,0 +1,11 @@
+{
+  "name": "proyectoArquitecturaSoftware",
+  "version": "1.0.0",
+  "description": "## ShareHits",
+  "dependencies": {
+  },
+  "devDependencies": {
+     "gulp": "^3.9.0",
+     "gulp-webserver": "^0.9.1"
+  }
+ }

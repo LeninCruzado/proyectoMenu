@@ -1,0 +1,18 @@
+{
+  "name": "MenuOrder",
+  "version": "0.0.0",
+  "authors": [
+    "irvinstone <luis.leon@telemovilperu.com>"
+  ],
+  "description": "Taller Construccion de Software",
+  "main": "bower.json",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "dependencies": {
+      "angular-material": "0.11.0"
+  },
+  "license": "MIT"
+}
