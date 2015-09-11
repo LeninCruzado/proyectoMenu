@@ -1,23 +1,46 @@
+/***********************************************************GeneralCSS***********************************************************/
 .full-height{
     height: 100%;
 }
-#loginContainer{
-    background-color: #00838F;
-    color: white;
+.height-50{
+	height: 50%;
 }
-#template{
-    background-color: rgb(131, 82, 180);
+.internal-container{
+	height: calc(100% - 64px);
 }
-#img-login{
-    width: 50%;
-    height: 50%;
+.list-item{
+	display: -webkit-inline-box;
+	padding: 0px 8px;
 }
-.block-content{
-    padding: 24px;
-}
-label, md-input-container .md-input{
-    color: white !important;
+.mi-nav{
+	vertical-align: sub;
+	font-size: 24px;
 }
 .Center{
-    text-align: center;
+	display: block;
+	left: auto;
+	right: auto;
+}
+/***********************************************************ClienteCss***********************************************************/
+#Center-title{
+	line-height: 3;
+}
+#nav-list{
+	list-style: none;
+	cursor: pointer;
+	font-size: 16px;
+	height: 32px;
+	line-height: 2;
+	display: -webkit-inline-box;
+}
+.container-cliente{
+	background-image: url(../images/bg.png);
+	background-repeat: none;
+	background-size: cover;
+}
+#main-title{
+	font-size: 2em;
+	text-align: center;
+	color: #EF6C00;
+	font-family: 'Playball', cursive;
 }
