@@ -9,7 +9,11 @@
 	height: calc(100% - 64px);
 }
 .list-item{
-	display: -webkit-inline-box;
+	display: -webkit-webkit-inline-box: ;
+	-moz-webkit-inline-box: ;
+	-ms-webkit-inline-box: ;
+	-o-webkit-inline-box: ;
+	webkit-inline-box: ;	
 	padding: 0px 8px;
 }
 .mi-nav{
