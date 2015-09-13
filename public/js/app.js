@@ -11,19 +11,23 @@ angular
           templateUrl: "partials/cliente.html",
           controller: "clienteController"
       })
-        .state('login', {
-            url: "/login",
-            templateUrl: "partials/login.html",
-            controller: "loginController"
-        })
-        .state('gestionar', {
-            url: "/gestionar",
-            templateUrl: "partials/gestionar.html"
-        })
-            .state('partido',{
-                    url: "/partido",
-                    templateUrl: "partials/gestionarpartido.html"
-            })
+          .state('cliente.delivery',{
+            url: "/delivery",
+            templateUrl: "partials/cliente.delivery.html"
+          })
+           .state('cliente.platos', {
+          url: "/platos",
+          templateUrl: "partials/cliente.platos.html"
+      })
+      .state('login', {
+          url: "/login",
+          templateUrl: "partials/login.html",
+          controller: "loginController"
+      })
+      .state('partido',{
+              url: "/partido",
+              templateUrl: "partials/gestionarpartido.html"
+      })
           /*.state('route2.list', {
               url: "/list",
               templateUrl: "route2.list.html",
@@ -41,5 +45,4 @@ angular
 .controller('clienteController',['$scope', function($scope){
   console.log("clientes");
   $scope.myDate = new Date();
-
 }])
