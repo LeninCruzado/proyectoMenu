@@ -147,6 +147,7 @@
 md-toolbar:not(.md-menu-toolbar) {
     background-color: white;
     color: black;
+    position: fixed;
 }
 #titlePage{
 	text-shadow: -4px 4px 16px white;
@@ -182,7 +183,7 @@ md-toolbar:not(.md-menu-toolbar) {
 }
 .board-Menu-title{
 	padding: 0px 0px 8px 0px;
-	font-size: 32px;
+	font-size: 24px;
 	color: #FFFF00;
 }
 .board-Menu-title-2{
@@ -198,4 +199,21 @@ md-toolbar:not(.md-menu-toolbar) {
 }
 .Board-content > div > 	md-list > md-list-item {
 	min-height: 53px;
+}
+.menu-banner{
+    background-image: url(../images/menu.jpg);
+    background-repeat: none;
+    background-size: cover;
+    padding: 150px;
+    margin: 64px 0px 48px 0px;
+}
+.banner-title{
+    font-family: 'Fredericka the Great', cursive;
+}
+.menu-banner-1{
+    background-image: url(../images/Carta.png);
+    background-repeat: none;
+    background-size: cover;
+    padding: 150px;
+    margin: 48px 0px; 
 }

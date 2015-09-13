@@ -2,6 +2,7 @@ angular
 .module('voteApp', ['ngMaterial', 'ui.router'])
 .run(function($log){
   $log.debug("voteApp running");
+  new WOW().init();
 })
 .config(['$urlRouterProvider','$stateProvider', function($urlRouterProvider, $stateProvider){
       $urlRouterProvider.otherwise("/cliente");
@@ -45,4 +46,5 @@ angular
 .controller('clienteController',['$scope', function($scope){
   console.log("clientes");
   $scope.myDate = new Date();
+  // $mdSticky({scope, md-toolbar})
 }])
