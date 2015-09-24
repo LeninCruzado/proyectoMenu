@@ -6,13 +6,13 @@
 
 1. Posicionarse en la raíz del proyecto:
 
-2. Instalar las dependencias de node y bower
+2. Instalar las dependencias de node y bower  
 
 
-    npm install
+    npm install  
     bower install
 
-3. Tener instalado de forma global **gulp**, para instalar ejecutar lo siguiente:
+3. Tener instalado de forma global **gulp**, para instalar ejecutar lo siguiente:  
 
 
     sudo npm install gulp
