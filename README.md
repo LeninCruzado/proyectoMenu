@@ -1,11 +1,20 @@
 # proyectoMenu
-Proyecto de Taller de Software
+### Proyecto de Taller de Software
 
-Para ver las vistas actuales:
-1.- posiosionarse en las carpeta del proyecto:
-    >proyectomenu
-2.-Dentro abrir la consola con click derecho -> dan en la opcion git Bash.
-3.- Escribir en la consola: gulp
-5.- Esperen un tiempo mientras se habilita el servidor.
-4.- Abrira el navegador.
+#### FrontEnd
+0. Prerrequisito para correr el front es tener instalado node, npm y bower de forma global
 
+1. Posicionarse en la raíz del proyecto:
+
+2. Instalar las dependencias de node y bower
+
+
+    npm install
+    bower install
+
+3. Tener instalado de forma global **gulp**, para instalar ejecutar lo siguiente:
+
+
+    sudo npm install gulp
+
+5. Esperen un tiempo mientras se habilita el servidor y abrirá el navegador de forma automática.
