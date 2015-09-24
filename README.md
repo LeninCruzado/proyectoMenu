@@ -7,14 +7,14 @@
 1. Posicionarse en la raíz del proyecto:
 
 2. Instalar las dependencias de node y bower  
-
-
-    npm install  
-    bower install
+```
+npm install  
+bower install
+```
 
 3. Tener instalado de forma global **gulp**, para instalar ejecutar lo siguiente:  
-
-
-    sudo npm install gulp
+```
+sudo npm install gulp
+```
 
 5. Esperen un tiempo mientras se habilita el servidor y abrirá el navegador de forma automática.
