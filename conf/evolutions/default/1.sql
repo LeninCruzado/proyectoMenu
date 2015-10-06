@@ -42,6 +42,15 @@ create table postre (
   constraint pk_postre primary key (id))
 ;
 
+create table promocion (
+  id                        varchar(255) not null,
+  name                      varchar(255),
+  descripcion               varchar(255),
+  precio_ant                varchar(255),
+  precio_act                varchar(255),
+  constraint pk_promocion primary key (id))
+;
+
 create table tipo_menu (
   id                        bigint not null,
   name                      varchar(255),
@@ -57,6 +66,8 @@ create sequence menu_seq;
 create sequence plato_seq;
 
 create sequence postre_seq;
+
+create sequence promocion_seq;
 
 create sequence tipo_menu_seq;
 
@@ -87,6 +98,8 @@ drop table if exists plato;
 
 drop table if exists postre;
 
+drop table if exists promocion;
+
 drop table if exists tipo_menu;
 
 SET REFERENTIAL_INTEGRITY TRUE;
@@ -100,6 +113,8 @@ drop sequence if exists menu_seq;
 drop sequence if exists plato_seq;
 
 drop sequence if exists postre_seq;
+
+drop sequence if exists promocion_seq;
 
 drop sequence if exists tipo_menu_seq;
 

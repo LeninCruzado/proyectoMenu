@@ -52,5 +52,8 @@ POST    /postres/delete/:id    controllers.Postres.delete(id: Long)
 GET     /postres                controllers.Postres.getPostres()
 GET     /postre/:id             controllers.Postres.getPostre(id: Long)
 
+GET 	/promociones			controllers.Promociones.getPromociones()
+POST 	/Promociones/new			controllers.Promociones.createPromocion()
+	
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file               controllers.Assets.at(path="/public", file)
