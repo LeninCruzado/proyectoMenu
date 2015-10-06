@@ -1,0 +1,15 @@
+@(formulario: Form[Postre])
+@import helper._
+
+@main("Restaurante") {
+    <h2> Nueva Postre </h2>
+    
+    @form(routes.Postres.save()) {
+        <fieldset>
+            @inputText(formulario("name"),'_showConstraints -> false, '_label -> "Nombre: ")
+        </fieldset>
+        
+        <input type="submit" value="crear"> -
+        <a href="@routes.Postres.index"> <input type="button" value="Cancelar"> </a>
+    }
+}

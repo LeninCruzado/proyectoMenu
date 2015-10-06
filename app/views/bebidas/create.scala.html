@@ -1,0 +1,15 @@
+@(formulario: Form[Bebida])
+@import helper._
+
+@main("Restaurante") {
+    <h2> Nueva Bebida </h2>
+    
+    @form(routes.Bebidas.save()) {
+        <fieldset>
+            @inputText(formulario("name"),'_showConstraints -> false, '_label -> "Nombre: ")
+        </fieldset>
+        
+        <input type="submit" value="crear"> -
+        <a href="@routes.Bebidas.index"> <input type="button" value="Cancelar"> </a>
+    }
+}

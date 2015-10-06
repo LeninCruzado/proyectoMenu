@@ -1,0 +1,56 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Home.index()
+GET     /home/nosotros              controllers.Home.nosotros()
+GET     /home/salir                 controllers.Home.salir()
+GET     /home/ingresar              controllers.Home.ingresar()
+
+#Platos
+GET     /platos/index         controllers.Platos.index()
+GET     /platos/new           controllers.Platos.create()
+POST    /platos/new           controllers.Platos.save()
+GET     /platos/:id           controllers.Platos.edit(id: Long)
+POST    /platos/:id           controllers.Platos.update(id: Long)
+POST    /platos/delete/:id    controllers.Platos.delete(id: Long)
+
+GET     /platos                 controllers.Platos.getPlatos()
+GET     /plato/:id              controllers.Platos.getPlato(id: Long)
+
+#Entradas
+GET     /entradas/index         controllers.Entradas.index()
+GET     /entradas/new           controllers.Entradas.create()
+POST    /entradas/new           controllers.Entradas.save()
+GET     /entradas/:id           controllers.Entradas.edit(id: Long)
+POST    /entradas/:id           controllers.Entradas.update(id: Long)
+POST    /entradas/delete/:id    controllers.Entradas.delete(id: Long)
+
+GET     /entradas               controllers.Entradas.getEntradas()
+GET     /entrada/:id            controllers.Entradas.getEntrada(id: Long)
+
+#Bebidas
+GET     /bebidas/index         controllers.Bebidas.index()
+GET     /bebidas/new           controllers.Bebidas.create()
+POST    /bebidas/new           controllers.Bebidas.save()
+GET     /bebidas/:id           controllers.Bebidas.edit(id: Long)
+POST    /bebidas/:id           controllers.Bebidas.update(id: Long)
+POST    /bebidas/delete/:id    controllers.Bebidas.delete(id: Long)
+
+GET     /bebidas               controllers.Bebidas.getBebidas()
+GET     /bebida/:id            controllers.Bebidas.getBebida(id: Long)
+
+#Postres
+GET     /postres/index         controllers.Postres.index()
+GET     /postres/new           controllers.Postres.create()
+POST    /postres/new           controllers.Postres.save()
+GET     /postres/:id           controllers.Postres.edit(id: Long)
+POST    /postres/:id           controllers.Postres.update(id: Long)
+POST    /postres/delete/:id    controllers.Postres.delete(id: Long)
+
+GET     /postres                controllers.Postres.getPostres()
+GET     /postre/:id             controllers.Postres.getPostre(id: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /*file               controllers.Assets.at(path="/public", file)
