@@ -1,0 +1,58 @@
+<div class="container-cliente full-height">
+	<md-toolbar class="nav-bar">
+		<nav class="nav-bar"> 
+			<div layout="row" class="nav-bar">
+			 	<div layout="row" flex="40" layout-align="center-center">
+					<ul id="nav-list">
+						<li class="list-item" ui-sref="cliente" ng-click="activate(1, 1)" ng-disabled="1 == isActive">
+							<span>HOME</span> 
+							<!-- <i class="material-icons mi-nav">home</i> -->
+						</li>
+						<li class="list-item" ui-sref="cliente.platos" ng-click="activate(2, 1)" ng-disabled="2 == isActive">
+							<span>PLATOS</span>
+							<!-- <i class="material-icons mi-nav">local_dining</i>  -->
+						</li>
+						<li class="list-item" ng-click="activate(3, 1)" ng-disabled="3 == isActive">
+							<span>RESERVAR</span>
+							<!-- <i class="material-icons mi-nav">event_seat</i> -->
+						</li>
+						<li class="list-item" ui-sref="cliente.delivery" ng-click="activate(4, 1)" ng-disabled="4 == isActive">
+							<span>DELIVERY</span>
+							<!-- <i class="material-icons mi-nav">local_shipping</i> -->
+						</li>
+					</ul>
+				</div>
+				<div flex="20" layout="row" layout-align="center center">
+					Raices Peruanas
+				</div>
+				<div flex="40"></div>	
+			</div>
+		</nav>
+	</md-toolbar>
+	<div layout="column" class="full-height master-container" ui-view>
+		<div layout="row" class="internal-container animated fadeInUp">
+			<div flex="30"></div>
+			<div flex="40" id="main-title" layout="row" layout-align="center center">
+				<h1 id="titlePage">Raices Peruanas</h1>
+			</div>
+			<div flex="30"></div>
+		</div>
+		<div layout="row" class="container-custom animated fadeInLeft" parallax-background parallax-ratio="0.2">
+			<h1 class="padding-2x">Promociones</h1>
+		</div>
+		<div layout="row" class="container-custom" layout-wrap>
+			<div flex="33" ng-repeat="plato in promociones">
+				<div layout="row" class="wow bounceInLeft">
+					<div flex="40" class="thumbnail-container">
+						<img src="images/Carta.png" alt="thumbanil" class="thumbnail-img" ng-click="mostrarDetalles(plato)">
+					</div>
+					<div flex="60" class="thumbnail-container">
+						<span class="thumbnail th-title">{{plato.nombre}}</span>
+						<span class="thumbnail th-dscrp">{{plato.descripcion}}</span>
+						<span class="thumbnail th-price">S/.{{plato.precioActual}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

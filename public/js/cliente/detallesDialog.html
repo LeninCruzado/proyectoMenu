@@ -1,0 +1,21 @@
+<md-dialog>
+	<md-card>
+		<img src="images/Carta.png" class="md-card-image" alt="image caption">
+		<md-card-content>
+		   <h2>{{plato.nombre}}</h2>
+		   <p>{{plato.descripcion}}</p>
+		   <div layout="row">
+		   		<div class="padding-2x">
+		   			<em>Antes: </em><span class="precio-anterior">S/{{plato.precioAnterior}}</span>
+		   		</div>
+		   		<div class="padding-2x">
+		   			<em>Ahora: </em><span class="precio-actual">S/{{plato.precioActual}}</span>
+		   		</div>
+		   </div>
+		</md-card-content>
+		<div class="md-actions" layout="row" layout-align="end center">
+		   <md-button class="btn-primary">Ordenar</md-button>
+		   <md-button class="btn-primary" ng-click="cancelar()">Cancelar</md-button>
+		</div>
+	</md-card>
+</md-dialog>	

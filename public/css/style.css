@@ -1,4 +1,7 @@
 /***********************************************************GeneralCSS***********************************************************/
+html,body{
+    background-color: #FFFEEE !important;
+}
 .full-height{
     height: 100%;
 }
@@ -6,18 +9,18 @@
 	height: 50%;
 }
 .internal-container{
-	background-image: url(../images/bg.png);
+	/*background-image: url(../images/bg.png);
 	background-repeat: none;
-	background-size: cover;
+	background-size: cover;*/
 	padding: 125px 0px;
 }
 .list-item{
 	display: -moz-inline-box;	
 	padding: 0px 16px;
 }
-.list-item:hover{
-	background-color: #DEAD71;
-	color: white;
+.list-item:hover, .btn-list:hover, .list-item[disabled], .btn-list[disabled] {
+	/*background-color: #DEAD71 !important;*/
+	color: #DEAD71;
 }
 .mi-nav{
 	vertical-align: sub;
@@ -29,8 +32,89 @@
 	right: auto;
 }
 .block-content{
-	padding: 24px;	
+    background: #333333;
+	padding: 24px;
+    color: 	#ffffff;
 }
+.thumbnail-container{
+    padding: 16px 0px 16px 16px;
+}
+.thumbnail-img{
+    height: 100px;
+    width: 100%;
+    cursor: pointer;
+}
+.thumbnail{
+    display: block;
+    padding: 8px 0px 8px 16px;
+}
+.th-title{
+    font-weight: bold;
+}
+.th-dscrp{
+    
+}
+.th-price{
+
+}
+.padding-2x{
+    padding: 16px;
+}
+.precio-anterior{
+    color: red;
+    text-decoration: line-through;
+}
+.precio-actual{
+    font-weight: bold;
+}
+.btn-primary{
+    color: #2196F3;
+    font-weight: bold;
+}
+.GeneralContainer{
+    padding-top: 81px;
+}
+md-list{
+    padding: 0px;
+}
+md-list-item{
+    cursor: pointer;
+}
+.btn-list{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    font-weight: bold;
+}
+#template{
+    background-image: url(../images/backg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+md-list-item.md-1-line, .container, .container-custom{
+    background-color: rgba(51, 51, 51, 0.6);
+    color: #ffffff;
+}
+.white-text{
+    color: #ffffff !important;
+}
+.nav-bar{
+    height: 80px;
+}
+.container{
+    padding: 16px;
+}
+md-select .md-select-value.md-select-placeholder{
+    color: #ffffff;
+}
+md-select .md-select-value {
+    border-bottom-color: #ffffff;
+}
+.master-container{
+    overflow-x: auto;
+} 
 /***********************************************************AnimationsCss***********************************************************/
 .animated { 
     -webkit-animation-duration: 2s; 
@@ -130,14 +214,10 @@
 	line-height: 3;
 	display: -webkit-inline-box;
 }
-.container-cliente{
-	
-}
 #main-title{
 	font-size: 2.5em;
 	text-align: center;
 	color: #521300;
-	font-family: 'Fredericka the Great', cursive;
 }
 #logoimg{
 	right: 42%;
@@ -145,12 +225,14 @@
 	position: absolute;
 }
 md-toolbar:not(.md-menu-toolbar) {
-    background-color: white;
-    color: black;
+    background-color: rgba(51, 51, 51, 0.6);
+    color: #ffffff;
     position: fixed;
 }
 #titlePage{
 	text-shadow: -4px 4px 16px white;
+    margin-left: 53.6px;
+    margin-top: 128px; 
 }
 .md-1-line{
 	height: 75px;
@@ -178,9 +260,7 @@ md-toolbar:not(.md-menu-toolbar) {
 	height: 620px;
 	padding: 80px 48px 0px 56px;
 }
-.board-Menu-title, .board-Menu-title-2{
-	font-family: 'Fredericka the Great', cursive;
-}
+
 .board-Menu-title{
 	padding: 0px 0px 8px 0px;
 	font-size: 24px;
@@ -190,9 +270,6 @@ md-toolbar:not(.md-menu-toolbar) {
 	font-size: 24px;
 	text-decoration: underline;
 	color: #CDDC39;
-}
-.board-list{
-	font-family: 'Fredericka the Great', cursive;
 }
 .board-list-item{
 	color: white !important;
@@ -206,9 +283,6 @@ md-toolbar:not(.md-menu-toolbar) {
     background-size: cover;
     padding: 150px;
     margin: 64px 0px 48px 0px;
-}
-.banner-title{
-    font-family: 'Fredericka the Great', cursive;
 }
 .menu-banner-1{
     background-image: url(../images/Carta.png);

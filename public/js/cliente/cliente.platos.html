@@ -1,0 +1,369 @@
+<div layout="row" class="GeneralContainer">
+	<div flex="10"></div>
+	<div flex="80">
+		<div layout="row">
+			<div flex="30" class="md-whiteframe-z3 animated bounceInDown">
+				<md-list>
+				  <md-list-item class="md-1-line" ng-repeat="categoria in categorias">
+				    <md-button 
+				    	class="md-list-item-text btn-list" 
+				    	ng-click="activate(categoria.codigo, 2)"
+				    	ng-disabled="categoria.codigo==isActiveCat"
+				    >
+				      <em>{{categoria.nombre}}</em>
+				    </md-button>
+				  </md-list-item>
+				</md-list>
+			</div>
+			<div flex="20">
+			</div>
+			<div flex="50">
+				<div ng-switch on="isActiveCat">
+					<div ng-switch-when="1">
+						<div class="container animated bounceInDown">
+							<md-input-container>
+								<label class="white-text">Seleccione Entrada</label>
+							  	<md-select ng-model="someModel" class="custom-select">
+							    	<!-- <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option> -->
+							    	<md-option>Entrada 1</md-option>
+							    	<md-option>Entrada 2</md-option>
+							  	</md-select>
+							</md-input-container>
+							<md-input-container>
+								<label class="white-text">Seleccione Segundo</label>
+							  	<md-select ng-model="someModel2" class="custom-select">
+							    	<!-- <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option> -->
+							    	<md-option>Segundo 1</md-option>
+							    	<md-option>Segundo 2</md-option>
+							  	</md-select>
+							</md-input-container>	
+						</div>
+					</div>
+					<div ng-switch-when="2">
+						<div class="container animated bounceInDown">
+							<md-input-container>
+								<label class="white-text">Seleccione Entrada</label>
+							  	<md-select ng-model="someModel" class="custom-select">
+							    	<!-- <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option> -->
+							    	<md-option>Entrada 1</md-option>
+							    	<md-option>Entrada 2</md-option>
+							  	</md-select>
+							</md-input-container>
+							<md-input-container>
+								<label class="white-text">Seleccione Segundo</label>
+							  	<md-select ng-model="someModel2" class="custom-select">
+							    	<!-- <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option> -->
+							    	<md-option>Segundo 1</md-option>
+							    	<md-option>Segundo 2</md-option>
+							  	</md-select>
+							</md-input-container>	
+						</div>
+					</div>
+					<div ng-switch-when="3">
+						<div class="container animated bounceInDown">
+							<md-input-container>
+								<label class="white-text">Seleccione Entrada</label>
+							  	<md-select ng-model="someModel" class="custom-select">
+							    	<!-- <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option> -->
+							    	<md-option>Entrada 1</md-option>
+							    	<md-option>Entrada 2</md-option>
+							  	</md-select>
+							</md-input-container>
+							<md-input-container>
+								<label class="white-text">Seleccione Segundo</label>
+							  	<md-select ng-model="someModel2" class="custom-select">
+							    	<!-- <md-option ng-value="opt" ng-repeat="opt in neighborhoods2">{{ opt }}</md-option> -->
+							    	<md-option>Segundo 1</md-option>
+							    	<md-option>Segundo 2</md-option>
+							  	</md-select>
+							</md-input-container>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div flex="10"></div>
+</div>
+
+<!-- <div class="menu-banner animated fadeInUp" layout="row" layout-align="center center">
+	<h1 id="titlePage" class="banner-title">MENU DEL DIA</h1>
+</div>
+<div class="Board">
+	<div layout="row" class="Board-content">
+		<div flex="33" class="animated fadeInLeft">
+			<div flex layout="row" layout-align="center center">
+				<span class="board-Menu-title">MENU EJECUTIVO ... S/15.00 </span>
+			</div>
+			<span class="board-Menu-title-2">ENTRADAS</span>
+			<md-list class="board-list">
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex="90">
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">LOMO SALTADO</h3>
+			        	</div>
+		        	</div>	
+		      	</md-list-item>
+			    <md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">SPAGHETTI A LA HUANCAINA</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		    </md-list>
+			<span class="board-Menu-title-2">SEGUNDOS</span>
+			<md-list class="board-list">
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">LOMO SALTADO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+			    <md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">SPAGHETTI A LA HUANCAINA</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">BISTECK A LA POBRE</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">CHANCHO AL PALO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		    </md-list>
+		</div>
+		<div flex="33" class="animated fadeInLeft">
+			<div flex layout="row" layout-align="center center">
+				<span class="board-Menu-title">MENU ECONOMICO ... S/10.00 </span>
+			</div>
+			<span class="board-Menu-title-2">ENTRADAS</span>
+			<md-list class="board-list">
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">LOMO SALTADO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+			    <md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">SPAGHETTI A LA HUANCAINA</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		    </md-list>
+			<span class="board-Menu-title-2">SEGUNDOS</span>
+			<md-list class="board-list">
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">LOMO SALTADO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+			    <md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">SPAGHETTI A LA HUANCAINA</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">BISTECK A LA POBRE</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">CHANCHO AL PALO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		    </md-list>
+		</div>
+		<div flex="33" class="animated fadeInLeft">
+			<div flex layout="row" layout-align="center center">
+				<span class="board-Menu-title">MENU DIETETICO ... S/12.00 </span>
+			</div>
+			<span class="board-Menu-title-2">ENTRADAS</span>
+			<md-list class="board-list">
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">LOMO SALTADO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+			    <md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">SPAGHETTI A LA HUANCAINA</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		    </md-list>
+			<span class="board-Menu-title-2">SEGUNDOS</span>
+			<md-list class="board-list">
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">LOMO SALTADO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+			    <md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">SPAGHETTI A LA HUANCAINA</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">BISTECK A LA POBRE</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		      	<md-list-item class="md-2-line" flex>
+		      		<div layout="row" flex>
+			        	<div class="md-list-item-text" layout="column" flex>
+			          		<h3 class="board-list-item">CHANCHO AL PALO</h3>
+			        	</div>
+		        	</div>
+		      	</md-list-item>
+		    </md-list>
+		</div>
+	</div>
+</div>
+<div class="menu-banner-1 wow animated fadeInRight" layout="row" layout-align="center center">
+	<h1 id="titlePage" class="banner-title">Platos a la Carta</h1>
+</div>
+<div layout="row">
+	<div flex="50" class="animated fadeInLeft">
+		<div layout="row">
+			<div flex class="block-content">
+				<h3>CRIOLLOS</h3>
+				<em class="em-custom">Precio</em>
+				<md-divider></md-divider>
+				<md-list>
+			      	<md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+				    <md-list-item class="md-2-line  wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+			      	<md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+			      	<md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+			    </md-list>
+			</div>
+		</div>
+	</div>
+	<div flex="50" class="animated fadeInRight">
+		<div layout="row">
+			<div flex class="block-content">
+				<h3>MARINOS</h3>
+				<em class="em-custom">Precio</em>
+				<md-divider></md-divider>
+				<md-list>
+			      	<md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+				    <md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+			      	<md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+			      	<md-list-item class="md-2-line wow bounceInLeft" flex>
+			      		<div layout="row" flex>
+				        	<div class="md-list-item-text" layout="column" flex="80">
+				          		<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.!</h3>
+				          		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				        	</div>
+				        	<div class="md-list-item-text" layout="column" flex="20">
+				          		<h3>S/20.00</h3>
+				        	</div>
+			        	</div>
+			      	</md-list-item>
+			    </md-list>
+			</div>
+		</div>
+	</div>
+</div> -->
