@@ -32,7 +32,7 @@
 	<!-- <div>
 		Hola Mundo
 	</div> -->
-	<div layout="column" class="full-height master-container" ui-view>
+	<div layout="column" class="master-container" ui-view>
 		<div layout="row" class="internal-container animated fadeInUp">
 			<div flex="30"></div>
 			<div flex="40" id="main-title" layout="row" layout-align="center center">
@@ -50,8 +50,9 @@
 						<img src="images/Carta.png" alt="thumbanil" class="thumbnail-img" ng-click="mostrarDetalles(plato)">
 					</div>
 					<div flex="60" class="thumbnail-container">
-						<span class="thumbnail th-title">{{plato.nombre}}</span>
-						<span class="thumbnail th-dscrp">{{plato.descripcion}}</span>
+						<span class="thumbnail th-title">{{plato.name}}</span>
+						<!-- <span class="thumbnail th-dscrp">{{plato.descripcion}}</span> -->
+						<span class="thumbnail th-dscrp">aqui ira una descripcion</span>
 						<span class="thumbnail th-price">S/.{{plato.precioActual}}</span>
 					</div>
 				</div>
