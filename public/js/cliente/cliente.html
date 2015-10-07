@@ -45,14 +45,14 @@
 		</div>
 		<div layout="row" class="container-custom" layout-wrap>
 			<div flex="33" ng-repeat="plato in promociones">
-				<div layout="row" class="wow bounceInLeft">
+				<div layout="row" class="wow animated bounceInLeft">
 					<div flex="40" class="thumbnail-container">
 						<img src="images/Carta.png" alt="thumbanil" class="thumbnail-img" ng-click="mostrarDetalles(plato)">
 					</div>
 					<div flex="60" class="thumbnail-container">
-						<span class="thumbnail th-title">{{plato.name}}</span>
-						<!-- <span class="thumbnail th-dscrp">{{plato.descripcion}}</span> -->
-						<span class="thumbnail th-dscrp">aqui ira una descripcion</span>
+						<span class="thumbnail th-title">{{plato.nombre}}</span>
+						<span class="thumbnail th-dscrp">{{plato.descripcion}}</span>
+<!-- 						<span class="thumbnail th-dscrp">aqui ira una descripcion</span> -->
 						<span class="thumbnail th-price">S/.{{plato.precioActual}}</span>
 					</div>
 				</div>
