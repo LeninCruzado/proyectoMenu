@@ -14,8 +14,8 @@ Proyecto de Taller de Software
 
 <h2>Nota</h2>
 <span>Si queremos tenerlo en otra ruta deberemos configurarlo de la sgte manera:</span><br>
-<span>1.-Abrimos con el editor texto q uses el archivo que se encuentra en "conf/applicantion.conf"</span><br>
-<span>2.- buscamos la siguiente linea (deberia ser la 37) : db.default.url="jdbc:h2:D:/TallerProy/proyectoMenu/db/Menu"</span><br>
+<span>1.- Abrimos con el editor texto q uses el archivo que se encuentra en "conf/applicantion.conf"</span><br>
+<span>2.- Buscamos la siguiente linea (deberia ser la 37) : db.default.url="jdbc:h2:D:/TallerProy/proyectoMenu/db/Menu"</span><br>
 <span>3.- cambiamos por la ruta en la que este el proyecto, solo cambiar hasta D:/TallerProy/proyectoMenu/ </span> 
 
 

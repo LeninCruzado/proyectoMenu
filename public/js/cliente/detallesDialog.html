@@ -6,10 +6,10 @@
 		   <p>{{plato.descripcion}}</p>
 		   <div layout="row">
 		   		<div class="padding-2x">
-		   			<em>Antes: </em><span class="precio-anterior">S/{{plato.precioAnterior}}</span>
+		   			<em>Antes: </em><span class="precio-anterior">S/{{plato.precioAnt | number: 2 }}</span>
 		   		</div>
 		   		<div class="padding-2x">
-		   			<em>Ahora: </em><span class="precio-actual">S/{{plato.precioActual}}</span>
+		   			<em>Ahora: </em><span class="precio-actual">S/{{plato.precioAct | number: 2}}</span>
 		   		</div>
 		   </div>
 		</md-card-content>

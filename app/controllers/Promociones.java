@@ -3,75 +3,53 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import play.data.*;
+import play.mvc.BodyParser;
 
-import views.html.platos.*;
+import views.html.*;
 
 import models.*;
 import java.util.List;
+
+import play.libs.Json;
+import play.libs.Json.*;
 import static play.libs.Json.toJson;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class Promociones extends Controller {
 
-    // public static Result index() {
-    //     return ok(index.render(Plato.find.all()));
-    // }
+    @BodyParser.Of(BodyParser.Json.class)
     
-    //GET, formulario para un nuevo registro
-    // public static Result create() {
-    //     Form<Promocion> formulario = Form.form(Promocion.class);
-    //     return ok(create.render(formulario));
-    // }
-    
-public static Result createPromocion() {
-        DynamicForm requestData = Form.form().bindFromRequest();
+    public static Result addPromocion()
+    {
+        //Promocion newPromocion = Json.fromJson(request().body().asJson(), Promocion.class);
+        JsonNode json = request().body().asJson();
+        if(json == null) {
+            return badRequest("Expecting Json data");
+        }else{
+            Promocion newPromocion = new Promocion();
+            //newPromocion.id = json.findPath("id").textValue();
+            //String cadena = json.findPath("nombre").textValue()
+            newPromocion.nombre = json.findPath("nombre").textValue();
+            newPromocion.descripcion = json.findPath("descripcion").textValue();
+            // String cadena1 = json.findPath("nombre").textValue()
+            // newPromocion.nombre = Float.parseFloat(cadena1);
+            String cadena1 = json.findPath("precioAnt").textValue();
+            newPromocion.precioAnt = Float.parseFloat(cadena1);
+            String cadena2 = json.findPath("precioAct").textValue();
+            newPromocion.precioAct = Float.parseFloat(cadena2);
+            //newPromocion.descripcion = json.findPath("descripcion").textValue();
+            //newPromocion.precioAnt = json.findPath("precioAnt").textValue();
+            //newPromocion.precioAct = json.findPath("precioAct").textValue();
+            
+            if(newPromocion.nombre == null) {
+                return badRequest("Missing parameter [nombre]");
+            } else {
+                newPromocion.save();
+                return redirect("/promociones");
+            }
+        }
+     }
 
-        String id = requestData.get("id");
-        String name = requestData.get("name");
-        String descripcion = requestData.get("descripcion");
-        String precioAnt = requestData.get("precioAnt");
-        String precioAct = requestData.get("precioAct");
-
-        Promocion.create(id,name,descripcion,precioAnt,precioAct);
-
-        return ok("se guardo");
-    }
-
-    // //POST, se guarda el formulario
-    // public static Result save() {
-    //     Form<Promocion> formulario = Form.form(Promocion.class).bindFromRequest();
-    //     if(formulario.hasErrors()) {
-    //         return badRequest(create.render(formulario));
-    //     }
-    //     formulario.get().save();
-    //     //flash("success","Promocion " + formulario.get().name + " creado con exito!");
-    //     return ok("se guardó");
-    // }
-    
-    // //GET,editar el registro
-    // public static Result edit(Long id) {
-    //     Form<Plato> formulario = Form.form(Plato.class).fill(Plato.find.byId(id));
-    //     return ok(edit.render(id, formulario));
-    // }
-    
-    // //POST, guardar el registro editado
-    // public static Result update(Long id) {
-    //     Form<Plato> formulario = Form.form(Plato.class).bindFromRequest();
-    //     if(formulario.hasErrors()) {
-    //         return badRequest(edit.render(id, formulario));
-    //     }
-    //     formulario.get().update(id);
-    //     flash("success", "Plato " + formulario.get().name + " actualizado con exito!");
-    //     return redirect("/platos/index");
-    // }
-    
-    // //POST, elimina registro
-    // public static Result delete(Long id) {
-    //     Plato.find.ref(id).delete();
-    //     flash("success", "Plato ha sido eliminado");
-    //     return redirect("/platos/index");
-
-    // }
-    
     public static Result getPromociones(){
         List<Promocion> promociones = Promocion.find.all();
         return ok(toJson(promociones));
@@ -81,6 +59,13 @@ public static Result createPromocion() {
         Promocion promocion = Promocion.find.byId(id);
         return ok(toJson(promocion));
     }
+    
+    public static Result deletePromocion() {
+        JsonNode json = request().body().asJson();
+        String cadena = json.findPath("id").textValue();
+        Long id = Long.parseLong(cadena);
+        Promocion.find.ref(id).delete();
+        //flash("success", "Entrada ha sido eliminado");
+        return redirect("/promociones");
+    }
 }
-
-

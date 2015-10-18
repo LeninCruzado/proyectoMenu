@@ -1,5 +1,5 @@
 <div class="container-cliente full-height">
-	<md-toolbar class="nav-bar">
+	<md-toolbar class="nav-bar md-whiteframe-z5">
 		<nav class="nav-bar"> 
 			<div layout="row" class="nav-bar">
 			 	<div layout="row" flex="40" layout-align="center-center">
@@ -53,7 +53,7 @@
 						<span class="thumbnail th-title">{{plato.nombre}}</span>
 						<span class="thumbnail th-dscrp">{{plato.descripcion}}</span>
 <!-- 						<span class="thumbnail th-dscrp">aqui ira una descripcion</span> -->
-						<span class="thumbnail th-price">S/.{{plato.precioActual}}</span>
+						<span class="thumbnail th-price">S/.{{plato.precioAct | number: 2}}</span>
 					</div>
 				</div>
 			</div>

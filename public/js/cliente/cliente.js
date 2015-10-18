@@ -27,6 +27,7 @@ angular.module("cliente",[])
         $scope.categorias = categorias;
         $scope.isActive = 1;
 
+
         $scope.activate = function(param, view){
             if(view == 1)
                 $scope.isActive = param;
@@ -47,45 +48,45 @@ angular.module("cliente",[])
             console.log("showing..")
         }
         //Aqui ira la peticion de promociones
-        // $http.get("/promociones")
-        //     .success(function(data){
-        //         console.log(data)
-        //         $scope.promociones = data;
-        //     })
-        //     .error(function(err,status){
-        //         console.log(err);
-        //         console.log(status)
-        //     })
-        $scope.promociones = [
-            {
-                idPlato: "01",
-                nombre: "Cuy Chactado",
-                descripcion: "1/2 Cuy + papas doradas",
-                precioAnterior: "25.00",
-                precioActual: "20.00"
-            },
-            {
-                idPlato: "02",
-                nombre: "Lomo Saltado",
-                descripcion: "Lomo fino de la mas alta calidad",
-                precioAnterior: "25.00",
-                precioActual: "20.00"
-            },
-            {
-                idPlato: "03",
-                nombre: "Ceviche",
-                descripcion: "Cojinova + el mejor limon",
-                precioAnterior: "25.00",
-                precioActual: "20.00"
-            },
-            {
-                idPlato: "04",
-                nombre: "Seco de Pato",
-                descripcion: "Al mejor estilo norteño",
-                precioAnterior: "25.00",
-                precioActual: "20.00"
-            }
-        ]
+        $http.get("/promociones")
+            .success(function(data){
+                console.log(data)
+                $scope.promociones = data;
+            })
+            .error(function(err,status){
+                console.log(err);
+                console.log(status)
+            })
+        // $scope.promociones = [
+        //     {
+        //         idPlato: "01",
+        //         nombre: "Cuy Chactado",
+        //         descripcion: "1/2 Cuy + papas doradas",
+        //         precioAnterior: "25.00",
+        //         precioActual: "20.00"
+        //     },
+        //     {
+        //         idPlato: "02",
+        //         nombre: "Lomo Saltado",
+        //         descripcion: "Lomo fino de la mas alta calidad",
+        //         precioAnterior: "25.00",
+        //         precioActual: "20.00"
+        //     },
+        //     {
+        //         idPlato: "03",
+        //         nombre: "Ceviche",
+        //         descripcion: "Cojinova + el mejor limon",
+        //         precioAnterior: "25.00",
+        //         precioActual: "20.00"
+        //     },
+        //     {
+        //         idPlato: "04",
+        //         nombre: "Seco de Pato",
+        //         descripcion: "Al mejor estilo norteño",
+        //         precioAnterior: "25.00",
+        //         precioActual: "20.00"
+        //     }
+        // ]
 
         console.log($scope.promociones);
 	})

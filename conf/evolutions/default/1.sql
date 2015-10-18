@@ -43,11 +43,11 @@ create table postre (
 ;
 
 create table promocion (
-  id                        varchar(255) not null,
-  name                      varchar(255),
+  id                        bigint not null,
+  nombre                    varchar(255),
   descripcion               varchar(255),
-  precio_ant                varchar(255),
-  precio_act                varchar(255),
+  precio_ant                float,
+  precio_act                float,
   constraint pk_promocion primary key (id))
 ;
 

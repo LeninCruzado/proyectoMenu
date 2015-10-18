@@ -1,4 +1,38 @@
-09-22 14:47:42 jdbc[5]: exception
+10-08 15:33:52 jdbc[5]: exception
 org.h2.jdbc.JdbcSQLException: Tabla "PLAY_EVOLUTIONS" no encontrada
 Table "PLAY_EVOLUTIONS" not found; SQL statement:
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%' [42102-172]
+10-09 14:14:43 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "D:/TallerProy/proyectoMenu/db/Menu.h2.db"
+IO Exception: "java.io.EOFException"; "D:/TallerProy/proyectoMenu/db/Menu.h2.db" [90031-172]
+	at org.h2.message.DbException.get(DbException.java:158)
+	at org.h2.message.DbException.convertIOException(DbException.java:315)
+	at org.h2.store.FileStore.readFully(FileStore.java:268)
+	at org.h2.store.PageStore.readPage(PageStore.java:1288)
+	at org.h2.store.PageStore.getPage(PageStore.java:735)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:250)
+	at org.h2.store.PageLog.free(PageLog.java:209)
+	at org.h2.store.PageStore.compact(PageStore.java:491)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1214)
+	at org.h2.engine.Database.close(Database.java:1164)
+	at org.h2.engine.Database.removeSession(Database.java:1043)
+	at org.h2.engine.Session.close(Session.java:617)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:366)
+	at com.jolbox.bonecp.ConnectionHandle.internalClose(ConnectionHandle.java:504)
+	at com.jolbox.bonecp.ConnectionTesterThread.closeConnection(ConnectionTesterThread.java:162)
+	at com.jolbox.bonecp.ConnectionTesterThread.run(ConnectionTesterThread.java:95)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(Unknown Source)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "D:/TallerProy/proyectoMenu/db/Menu.h2.db"
+IO Exception: "java.io.EOFException"; "D:/TallerProy/proyectoMenu/db/Menu.h2.db" [90031-172]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	... 23 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:343)
+	at org.h2.store.FileStore.readFully(FileStore.java:266)
+	... 20 more

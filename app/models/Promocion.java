@@ -13,20 +13,19 @@ import com.avaje.ebean.*;
 public class Promocion extends Model {
     
     @Id
-    public String id;
+    public Long id;
     
     @Constraints.Required(message="Debe ingresar el nombre")
-    public String name;
+    public String nombre;
     
-
-    @Constraints.Required(message="Debe ingresar el precio")
+    @Constraints.Required(message="Debe ingresar la descripcion")
     public String descripcion;    
     
-    @Constraints.Required(message="Debe ingresar el precio")
-    public String precioAnt;
+    @Constraints.Required(message="Debe ingresar el precioAnt")
+    public Float precioAnt;
 
-    @Constraints.Required(message="Debe ingresar el precio")
-    public String precioAct;
+    @Constraints.Required(message="Debe ingresar el precioAct")
+    public Float precioAct;
 
     // Generic query helper for entity with id long
     public static Model.Finder<Long,Promocion> find = new Model.Finder<Long,Promocion>(Long.class, Promocion.class);
@@ -34,25 +33,9 @@ public class Promocion extends Model {
     // Para usar en select list
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for(Plato c: Plato.find.orderBy("name").findList()) {
-            options.put(c.id.toString(), c.name);
+        for(Promocion c: Promocion.find.orderBy("nombre").findList()) {
+            options.put(c.id.toString(), c.nombre);
         }
         return options;
     }
-
-    public Promocion (String id,String name,String descripcion,String precioAnt,String precioAct) {
-        //this.id = id;
-        this.name = name;
-        this.descripcion = descripcion;
-        this.precioAnt = precioAnt;
-        this.precioAct = precioAct;
-    }
-
-    
-    public static Promocion create(String id,String name,String descripcion,String precioAnt,String precioAct) {
-        Promocion item = new Promocion(id,name,descripcion,precioAnt,precioAct);
-        item.save();
-        return item;
-    }
-    
 }
