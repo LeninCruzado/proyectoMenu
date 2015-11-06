@@ -7,6 +7,7 @@ angular
     'ui.router',
     'ngAnimate',
     'angular-parallax',
+    'angular-carousel',
     //'ngMessages',
     //'ngMessages',
 

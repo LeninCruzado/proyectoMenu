@@ -1,49 +1,53 @@
-<div class="container-cliente full-height">
-	<md-toolbar class="nav-bar md-whiteframe-z5">
-		<nav class="nav-bar"> 
-			<div layout="row" class="nav-bar">
-			 	<div layout="row" flex="40" layout-align="center-center">
-					<ul id="nav-list">
-						<li class="list-item" ui-sref="cliente" ng-click="activate(1, 1)" ng-disabled="1 == isActive">
-							<span>HOME</span> 
-							<!-- <i class="material-icons mi-nav">home</i> -->
-						</li>
-						<li class="list-item" ui-sref="cliente.platos" ng-click="activate(2, 1)" ng-disabled="2 == isActive">
-							<span>PLATOS</span>
-							<!-- <i class="material-icons mi-nav">local_dining</i>  -->
-						</li>
-						<li class="list-item" ng-click="activate(3, 1)" ng-disabled="3 == isActive">
-							<span>RESERVAR</span>
-							<!-- <i class="material-icons mi-nav">event_seat</i> -->
-						</li>
-						<li class="list-item" ui-sref="cliente.delivery" ng-click="activate(4, 1)" ng-disabled="4 == isActive">
-							<span>DELIVERY</span>
-							<!-- <i class="material-icons mi-nav">local_shipping</i> -->
-						</li>
-					</ul>
+<div class="core-container">
+	<div class="full-container"  id="template">
+		<md-toolbar class="nav-bar md-whiteframe-z5">
+			<nav class="nav-bar"> 
+				<div layout="row" class="nav-bar">
+				 	<div layout="row" flex="40" layout-align="center-center">
+						<ul id="nav-list">
+							<li class="list-item" ui-sref="cliente" ng-click="activate(1, 1)" ng-disabled="1 == isActive">
+								<span>HOME</span> 
+								<!-- <i class="material-icons mi-nav">home</i> -->
+							</li>
+							<li class="list-item" ui-sref="cliente.platos" ng-click="activate(2, 1)" ng-disabled="2 == isActive">
+								<span>PLATOS</span>
+								<!-- <i class="material-icons mi-nav">local_dining</i>  -->
+							</li>
+							<li class="list-item" ng-click="activate(3, 1)" ng-disabled="3 == isActive">
+								<span>RESERVAR</span>
+								<!-- <i class="material-icons mi-nav">event_seat</i> -->
+							</li>
+							<li class="list-item" ui-sref="cliente.delivery" ng-click="activate(4, 1)" ng-disabled="4 == isActive">
+								<span>DELIVERY</span>
+								<!-- <i class="material-icons mi-nav">local_shipping</i> -->
+							</li>
+						</ul>
+					</div>
+					<div flex="20" layout="row" layout-align="center center">
+						Raices Peruanas
+					</div>
+					<div flex="40"></div>	
 				</div>
-				<div flex="20" layout="row" layout-align="center center">
-					Raices Peruanas
+			</nav>
+		</md-toolbar>
+		<!-- <div>
+			Hola Mundo
+		</div> -->
+		<div layout="column" class="master-container" ui-view>
+			<div layout="row" class="internal-container animated fadeInUp">
+				<div flex="30"></div>
+				<div flex="40" id="main-title" layout="row" layout-align="center center">
+					<h1 id="titlePage">Raices Peruanas</h1>
 				</div>
-				<div flex="40"></div>	
+				<div flex="30"></div>
 			</div>
-		</nav>
-	</md-toolbar>
-	<!-- <div>
-		Hola Mundo
-	</div> -->
-	<div layout="column" class="master-container" ui-view>
-		<div layout="row" class="internal-container animated fadeInUp">
-			<div flex="30"></div>
-			<div flex="40" id="main-title" layout="row" layout-align="center center">
-				<h1 id="titlePage">Raices Peruanas</h1>
-			</div>
-			<div flex="30"></div>
 		</div>
-		<div layout="row" class="container-custom animated fadeInLeft" parallax-background parallax-ratio="0.2">
+	</div>
+	<div class="full-container">
+		<div layout="row" class="animated fadeInLeft" parallax-background parallax-ratio="0.2">
 			<h1 class="padding-2x">Promociones</h1>
 		</div>
-		<div layout="row" class="container-custom" layout-wrap>
+		<div layout="row" layout-wrap>
 			<div flex="33" ng-repeat="plato in promociones">
 				<div layout="row" class="wow animated bounceInLeft">
 					<div flex="40" class="thumbnail-container">

@@ -9,38 +9,43 @@ GET     /home/salir                 controllers.Home.salir()
 GET     /home/ingresar              controllers.Home.ingresar()
 
 #Entradas
-#GET     /entradas/index         controllers.Entradas.index()
-#GET     /entradas/new           controllers.Entradas.create()
-#POST    /entradas/new           controllers.Entradas.save()
-#GET     /entradas/:id           controllers.Entradas.edit(id: Long)
-#POST    /entradas/:id           controllers.Entradas.update(id: Long)
-#POST    /entradas/delete/:id    controllers.Entradas.delete(id: Long)
-
-#GET     /entradas               controllers.Entradas.getEntradas()
-#ET     /entrada/:id            controllers.Entradas.getEntrada(id: Long)
+GET     /entradas               controllers.Entradas.getEntradas()
+GET     /entrada/:id           	controllers.Entradas.getEntrada(id: Long)
+POST	/addEntrada				controllers.Entradas.addEntrada()
+POST	/sacarStockEntrada		controllers.Entradas.sacarStockEntrada()
+POST	/editEntrada			controllers.Entradas.editEntrada()
+POST    /deleteEntrada    		controllers.Entradas.deleteEntrada()
 
 #Platos
-#GET     /platos                 controllers.Platos.getPlatos()
-#GET     /plato/:id              controllers.Platos.getPlato(id: Long)
-#POST	/addPlato				controllers.Platos.addPlato()
-#POST    /deletePlato    		controllers.Platos.deletePlato()
+GET     /platos                 controllers.Platos.getPlatos()
+GET     /plato/:id              controllers.Platos.getPlato(id: Long)
+POST	/addPlato				controllers.Platos.addPlato()
+POST	/sacarStockPlato		controllers.Platos.sacarStockPlato()
+POST	/editPlato				controllers.Platos.editPlato()
+POST    /deletePlato    		controllers.Platos.deletePlato()
 
 #Bebidas
-#GET     /bebidas           		controllers.Bebidas.getBebidas()
-#GET     /bebida/:id				controllers.Bebidas.getBebida(id: Long)
-#POST	/addBebida				controllers.Bebidas.addBebida()
-#POST    /deleteBebida    		controllers.Bebidas.deleteBebida()
+GET     /bebidas           		controllers.Bebidas.getBebidas()
+GET     /bebida/:id				controllers.Bebidas.getBebida(id: Long)
+POST	/addBebida				controllers.Bebidas.addBebida()
+POST	/sacarStockBebida		controllers.Bebidas.sacarStockBebida()
+POST	/editBebida				controllers.Bebidas.editBebida()
+POST    /deleteBebida    		controllers.Bebidas.deleteBebida()
 
 #Postres
-#GET     /postres                controllers.Postres.getPostres()
-#GET     /postre/:id             controllers.Postres.getPostre(id: Long)
-#POST	/addPostre				controllers.Postres.addPostre()
-#POST    /deletePostre	    	controllers.Postres.deletePostre()
+GET     /postres                controllers.Postres.getPostres()
+GET     /postre/:id             controllers.Postres.getPostre(id: Long)
+POST	/addPostre				controllers.Postres.addPostre()
+POST	/sacarStockPostre		controllers.Postres.sacarStockPostre()
+POST	/editPostre				controllers.Postres.editPostre()
+POST    /deletePostre	    	controllers.Postres.deletePostre()
 
 #Promociones
 GET 	/promociones			controllers.Promociones.getPromociones()
 GET     /promocion/:id       	controllers.Promociones.getPromocion(id: Long)
 POST	/addPromocion			controllers.Promociones.addPromocion()
+POST	/sacarStockPromocion	controllers.Promociones.sacarStockPromocion()
+POST	/editPromocion			controllers.Promociones.editPromocion()
 POST    /deletePromocion    	controllers.Promociones.deletePromocion()
 	
 # Map static resources from the /public folder to the /assets URL path

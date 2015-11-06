@@ -1,5 +1,106 @@
-<md-content layout-padding layout="row" class="full-height">
-	<div flex="50">
+<md-content layout="column"class="full-height">
+	<md-toolbar class="nav-bar md-whiteframe-z1">
+		<nav class="nav-bar"> 
+			<div layout="row" class="nav-bar">
+			 	<div layout="row" flex="40" layout-align="center-center">
+					<ul id="nav-list">
+						<li class="list-item" ui-sref="administrador" ng-click="activate(1, 1)" ng-disabled="1 == isActive">
+							<span>HOME</span>
+							<!-- <i class="material-icons mi-nav">local_dining</i>  -->
+						</li>
+						<li 
+							class="list-item" 
+							ui-sref="administrador.platos" 
+							ng-click="activate(2, 1)" 
+							ng-disabled="2 == isActive"
+						>
+							<span>ADD PLATO</span> 
+							<!-- <i class="material-icons mi-nav">home</i> -->
+						</li>
+						<li class="list-item" ng-click="activate(3, 1)" ng-disabled="3 == isActive">
+							<span>DELETE PLATO</span>
+							<!-- <i class="material-icons mi-nav">event_seat</i> -->
+						</li>
+						<li class="list-item" ui-sref="cliente.delivery" ng-click="activate(4, 1)" ng-disabled="4 == isActive">
+							<span>DELIVERY</span>
+							<!-- <i class="material-icons mi-nav">local_shipping</i> -->
+						</li>
+					</ul>
+				</div>
+				<div flex="20" layout="row" layout-align="center center">
+					Raices Peruanas
+				</div>
+				<div flex="40"></div>	
+			</div>
+		</nav>
+	</md-toolbar>
+	<div layout="column" class="master-container">
+	<md-tabs md-dynamic-height="true" >
+		<md-tab label="ADD PLATO">
+			<div layout="row" layout-align="center center">
+				<div flex="33">
+					<form name="newPromo">
+					    <md-input-container>
+							<label>Nombre</label>
+							<input type="text" ng-model="plato.nombre">
+					    </md-input-container>
+					    <md-input-container>
+							<label>Precio</label>
+							<input type="text" ng-model="plato.precio">
+					    </md-input-container>
+					    <md-input-container>
+							<label>stock</label>
+							<input type="text" ng-model="plato.stock">
+					    </md-input-container>
+					</form>
+					<md-button class="md-raised Center" ng-click="sendPlato()"> Enviar </md-button>
+				</div>
+			</div>
+		</md-tab>
+		<md-tab label="DELETE PROMO">
+			<div layout="row" layout-align="center center">
+				<div flex="33">
+					<form name="deletePromo">
+					    <md-input-container>
+							<label>Id de plato</label>
+							<input type="text" ng-model="promocion.id">
+					    </md-input-container>
+					</form>
+				    <md-button class="md-raised Center" ng-click="deletePromocion()"> Enviar </md-button>
+			    </div>
+		    </div>
+		</md-tab>
+		<md-tab label="ADD PROMO">
+			<div layout="row" layout-align="center center">					
+				<div flex="33" >
+					<form name="newPromo">
+					    <md-input-container>
+							<label>Nombre</label>
+							<input type="text" ng-model="promocion.nombre">
+					    </md-input-container>
+					    <md-input-container>
+							<label>Descripcion</label>
+							<input type="text" ng-model="promocion.descripcion">
+					    </md-input-container>
+					    <md-input-container>
+							<label>Precio Anterior</label>
+							<input type="text" ng-model="promocion.precioAnt">
+					    </md-input-container>
+					    <md-input-container>
+							<label>Precio Actual</label>
+							<input type="text" ng-model="promocion.precioAct">    
+					    </md-input-container>
+					    <md-input-container>
+							<label>Stock</label>
+							<input type="text" ng-model="promocion.stock">
+					    </md-input-container>
+					</form>
+					<md-button class="md-raised Center" ng-click="sendPromocion()"> Enviar </md-button>
+				</div>
+			</div>
+		</md-tab>	
+	</md-tabs>
+	<!-- <div flex="50">
 		<form name="newPromo">
 		    <md-input-container>
 				<label>Nombre</label>
@@ -15,7 +116,9 @@
 		    </md-input-container>
 		    <md-input-container>
 				<label>Precio Actual</label>
-				<input type="text" ng-model="promocion.precioAct">
+				<input type="text
+
+				" ng-model="promocion.precioAct">
 		    </md-input-container>
 		</form>
 	    <md-button class="md-raised" ng-click="sendPromocion()"> Enviar </md-button>
@@ -28,5 +131,6 @@
 		    </md-input-container>
 		</form>
 	    <md-button class="md-raised" ng-click="deletePromocion()"> Enviar </md-button>
-    </div>	
-</md-content>
+    </div>	 -->
+    </div>
+</md-content>  

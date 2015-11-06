@@ -6,28 +6,54 @@ angular.module("administrador",[])
             	templateUrl: 'js/administrador/administrador.html',
                 controller:"AdministradorController"
             })
-            .state('administrador.delivery',{
-                url: "/delivery",
-                templateUrl: "js/administrador/administrador.delivery.html"
-            })
-            .state('administrador.platos', {
-                url: "/platos",
-                templateUrl: "js/administrador/administrador.platos.html"
-            })
+            // .state('administrador.delivery',{
+            //     url: "/delivery",
+            //     templateUrl: "js/administrador/administradorDelivery.html"
+            // })
+            // .state('administrador.platos', {
+            //     url: "/platos",
+            //     templateUrl: "js/administrador/administradorPlatos.html"
+            // })
     })
 	.controller("AdministradorController", function($scope, $http, $mdDialog, categorias){
        console.log("hola desde amdinCtrlr");
+       $scope.isActive = 1;
        // $scope.promocion = {
        //      "name"
        // }
+        $scope.plato = {
+            "id" : null,
+            "nombre" : null,
+            "descripcion" : null,
+            "precio" : null
+        }
         $scope.promocion = {
             "id" : null,
             "nombre" : null,
             "descripcion" : null,
             "precioAnt" : null,
-            "precioAct" : null
+            "precioAct" : null,
+            "stock" : null
         }
-
+        $scope.activate = function(param, view){
+            if(view == 1)
+                $scope.isActive = param;
+            else
+                if(view == 2)
+                    $scope.isActiveCat = param;
+        }
+        $scope.sendPlato = function(){
+            console.log($scope.plato);
+            var newPlato = $scope.plato;
+            $http.post("/addPlato",newPlato)
+            .success(function(a){
+                console.log(a)
+            })
+            .error(function(err,status){
+                console.log(err)
+                console.log(status)
+            });
+        }
         $scope.sendPromocion = function(){
             console.log($scope.promocion);
             var newPromocion = $scope.promocion;

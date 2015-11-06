@@ -5,14 +5,16 @@
 
 create table bebida (
   id                        bigint not null,
-  name                      varchar(255),
+  nombre                    varchar(255),
+  stock                     integer,
   constraint pk_bebida primary key (id))
 ;
 
 create table entrada (
   id                        bigint not null,
-  name                      varchar(255),
-  price                     varchar(255),
+  nombre                    varchar(255),
+  precio                    float,
+  stock                     integer,
   constraint pk_entrada primary key (id))
 ;
 
@@ -31,14 +33,16 @@ create table menu (
 
 create table plato (
   id                        bigint not null,
-  name                      varchar(255),
-  price                     varchar(255),
+  nombre                    varchar(255),
+  precio                    float,
+  stock                     integer,
   constraint pk_plato primary key (id))
 ;
 
 create table postre (
   id                        bigint not null,
-  name                      varchar(255),
+  nombre                    varchar(255),
+  stock                     integer,
   constraint pk_postre primary key (id))
 ;
 
@@ -48,12 +52,13 @@ create table promocion (
   descripcion               varchar(255),
   precio_ant                float,
   precio_act                float,
+  stock                     integer,
   constraint pk_promocion primary key (id))
 ;
 
 create table tipo_menu (
   id                        bigint not null,
-  name                      varchar(255),
+  nombre                    varchar(255),
   constraint pk_tipo_menu primary key (id))
 ;
 

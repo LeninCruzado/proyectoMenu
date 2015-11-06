@@ -1,9 +1,20 @@
 /***********************************************************GeneralCSS***********************************************************/
 html,body{
-    background-color: #FFFEEE !important;
+
 }
 .full-height{
     height: 100%;
+}
+.core-container{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.full-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow-y: auto; 
 }
 .height-50{
 	height: 50%;
@@ -28,8 +39,8 @@ html,body{
 }
 .Center{
 	display: block;
-	left: auto;
-	right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 .block-content{
     background: #333333;
@@ -112,6 +123,7 @@ md-select .md-select-value {
 .master-container{
     height: calc(100% - 81px);
     overflow-x: auto;
+    overflow-y: hidden; 
 }
 .master-container::-webkit-scrollbar{
   background-color: rgba(51, 51, 51, 0.6);

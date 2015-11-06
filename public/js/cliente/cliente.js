@@ -14,7 +14,8 @@ angular.module("cliente",[])
             })
                 .state('cliente.delivery',{
                     url: "/delivery",
-                    templateUrl: "js/cliente/cliente.delivery.html"
+                    templateUrl: "js/cliente/cliente.delivery.html",
+                    controller: "clienteDeliveryController"
                 })
                 .state('cliente.platos', {
                     url: "/platos",
@@ -52,6 +53,16 @@ angular.module("cliente",[])
             .success(function(data){
                 console.log(data)
                 $scope.promociones = data;
+            })
+            .error(function(err,status){
+                console.log(err);
+                console.log(status)
+            })
+        $http.get("/platos")
+            .success(function(data){
+                console.log(data)
+                var platos = data;
+                console.log(platos);
             })
             .error(function(err,status){
                 console.log(err);
@@ -97,4 +108,10 @@ angular.module("cliente",[])
        $scope.cancelar = function(){
           $mdDialog.hide();
        }
+    })
+    .controller('clienteDeliveryController', function($scope, $state){
+        console.log($scope.isActive);
+        if($scope.isActive == 1){
+            $state.go('cliente')
+        }   
     })
