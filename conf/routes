@@ -3,10 +3,10 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Home.index()
-GET     /home/nosotros              controllers.Home.nosotros()
-GET     /home/salir                 controllers.Home.salir()
-GET     /home/ingresar              controllers.Home.ingresar()
+GET		/							controllers.Home.index()
+POST	/home/salir                 controllers.Home.salir()
+POST    /home/ingresar              controllers.Home.ingresar()
+POST	/home/cambiar_password		controllers.Home.cambiar_password()
 
 #Entradas
 GET     /entradas               controllers.Entradas.getEntradas()
