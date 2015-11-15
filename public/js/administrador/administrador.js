@@ -15,9 +15,10 @@ angular.module("administrador",[])
             //     templateUrl: "js/administrador/administradorPlatos.html"
             // })
     })
-	.controller("AdministradorController", function($scope, $http, $mdDialog, categorias){
+	.controller("AdministradorController", function($scope, $http, $mdDialog, categorias, roles){
        console.log("hola desde amdinCtrlr");
        $scope.isActive = 1;
+       $scope.roles = roles;
        // $scope.promocion = {
        //      "name"
        // }

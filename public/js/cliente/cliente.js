@@ -53,6 +53,7 @@ angular.module("cliente",[])
             .success(function(data){
                 console.log(data)
                 $scope.promociones = data;
+                console.log($scope.promociones);
             })
             .error(function(err,status){
                 console.log(err);
@@ -68,38 +69,7 @@ angular.module("cliente",[])
                 console.log(err);
                 console.log(status)
             })
-        // $scope.promociones = [
-        //     {
-        //         idPlato: "01",
-        //         nombre: "Cuy Chactado",
-        //         descripcion: "1/2 Cuy + papas doradas",
-        //         precioAnterior: "25.00",
-        //         precioActual: "20.00"
-        //     },
-        //     {
-        //         idPlato: "02",
-        //         nombre: "Lomo Saltado",
-        //         descripcion: "Lomo fino de la mas alta calidad",
-        //         precioAnterior: "25.00",
-        //         precioActual: "20.00"
-        //     },
-        //     {
-        //         idPlato: "03",
-        //         nombre: "Ceviche",
-        //         descripcion: "Cojinova + el mejor limon",
-        //         precioAnterior: "25.00",
-        //         precioActual: "20.00"
-        //     },
-        //     {
-        //         idPlato: "04",
-        //         nombre: "Seco de Pato",
-        //         descripcion: "Al mejor estilo norteño",
-        //         precioAnterior: "25.00",
-        //         precioActual: "20.00"
-        //     }
-        // ]
-
-        console.log($scope.promociones);
+        //console.log($scope.promociones);
 	})
     .controller('detallesDialogController', function($scope, $mdDialog, plato){
        console.log("holo");

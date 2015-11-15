@@ -1,6 +1,6 @@
 /***********************************************************GeneralCSS***********************************************************/
 html,body{
-
+  
 }
 .full-height{
     height: 100%;
@@ -114,11 +114,11 @@ md-list-item.md-1-line, .container, .container-custom{
 .container{
     padding: 16px;
 }
-md-select .md-select-value.md-select-placeholder{
+/*md-select .md-select-value.md-select-placeholder{
     color: #ffffff;
 }
 md-select .md-select-value {
-    border-bottom-color: #ffffff;
+  */  border-bottom-color: #ffffff;
 }
 .master-container{
     height: calc(100% - 81px);

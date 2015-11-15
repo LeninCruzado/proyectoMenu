@@ -29,3 +29,17 @@ angular.module("utils",[])
 	    	nombre: "Bebidas"
 	  }
 	])
+	.constant('roles',[
+		{
+			codigo: 1,
+			nombre: "Administrador"
+		},
+		{
+			codigo: 2,
+			nombre: "Chef"
+		},
+		{
+			codigo: 3,
+			nombre: "Mozo"
+		}
+	])
