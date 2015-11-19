@@ -19,7 +19,8 @@ angular
 
     //Componentes
     "cliente",
-    "administrador"
+    "administrador",
+    "login"
     // "configuracion",
     // "factura",
     // "boleta",

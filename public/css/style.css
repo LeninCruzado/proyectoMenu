@@ -118,8 +118,8 @@ md-list-item.md-1-line, .container, .container-custom{
     color: #ffffff;
 }
 md-select .md-select-value {
-  */  border-bottom-color: #ffffff;
-}
+    border-bottom-color: #ffffff;
+}*/
 .master-container{
     height: calc(100% - 81px);
     overflow-x: auto;
@@ -146,6 +146,10 @@ md-select .md-select-value {
 }
 md-content{
     padding: 0px !important; 
+}
+.warn-text{
+  color: red;
+  text-align: center;
 }
 /***********************************************************AnimationsCss***********************************************************/
 .animated { 
@@ -233,6 +237,16 @@ md-content{
 .fadeInRight { 
     -webkit-animation-name: fadeInRight; 
     animation-name: fadeInRight; 
+}
+/**********************************************************LoginCss**********************************************************/
+.core-container.md-hue-1{
+    background-color: #e67e22;
+}
+md-input-container label.md-hue-1,input.md-hue-1{
+  color: white;
+}
+input.md-hue-1{
+  border-color: white;
 }
 /***********************************************************ClienteCss***********************************************************/
 #Center-title{

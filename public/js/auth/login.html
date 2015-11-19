@@ -1,0 +1,27 @@
+<div class="core-container md-hue-1">
+	<div class="full-container" layout="row" layout-align="center center">
+		<div flex="30">
+			<form name="loginForm">
+				<md-input-container>
+					<label class="md-hue-1">Username</label>
+					<input name="username" type="text" ng-model="user.name" class="md-hue-1" required>
+				</md-input-container>
+				<md-input-container>
+					<label class="md-hue-1">Password</label>
+					<input name="password" type="password" ng-model="user.pass" class="md-hue-1" required>
+				</md-input-container>
+				<md-button 
+					flex
+					class="md-raised Center" 
+					aria-label="description" 
+					ng-click="sendForm(loginForm)"
+				>
+					Ingresar
+				</md-button>
+				<span ng-if="isInvalid==1" class="warn-text Center">Ingrese el nombre de usuario</span>
+				<span ng-if="isInvalid==2" class="warn-text Center">Ingrese la contraseña</span>
+				<span ng-if="isInvalid==3" class="warn-text Center">El usuario no existe</span>
+			</form>
+		</div>
+	</div>
+</div>
