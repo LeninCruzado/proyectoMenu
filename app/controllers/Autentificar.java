@@ -3,24 +3,20 @@ package controllers;
 import play.*;
 import play.mvc.*;
 import play.mvc.Http.*;
-import play.libs.*;
-
+import play.libs.F.Promise;
 
 public class Autentificar extends Action.Simple {
 
-	public F.Promise <SimpleResult> call(Http.Context ctx) throws Throwable {
+	public Promise <SimpleResult> call(Http.Context ctx) throws Throwable {
 		
-		Response response = new Response();
-		response.setHeader("respuesta","salio todo bien");
+		//Response response = new Response();
 		
 		if(ctx.session().get("user") == null) {
-			//return redirect(routes.Home.acceso_denegado());
-			/*Result unauthorized = Results.unauthorized("unauthorized");
-			return F.Promise.pure(unauthorized);*/
-			return F.Promise.pure((SimpleResult) unauthorized("unauthorized"));
+			//response.setHeaders("respuesta","no");
+			//return Promise.pure ( ok(response) );
+			//return Promise.pure ( redirect(routes.Home.index()) );
+			return Promise.pure ( (SimpleResult) ok("No esta logueado") );
 		}
 		return delegate.call(ctx);
-
 	}
-
 }

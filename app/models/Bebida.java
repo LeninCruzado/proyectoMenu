@@ -21,6 +21,9 @@ public class Bebida extends Model {
     @Constraints.Required(message="Debe ingresar el stock")
     public Integer stock;
     
+    @Constraints.Required(message="Debe ingresar el stock")
+    public String imagen;
+    
     // Generic query helper for entity with id long
     public static Model.Finder<Long,Bebida> find = new Model.Finder<Long,Bebida>(Long.class, Bebida.class);
     

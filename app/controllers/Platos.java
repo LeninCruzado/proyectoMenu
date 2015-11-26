@@ -28,6 +28,14 @@ public class Platos extends Controller {
         return ok(toJson(plato));
     }
     
+    public static Result getPlatoNombre(String nombre){
+        Plato plato = Plato.find.where().eq("nombre", nombre).findUnique();
+        if(plato == null) {
+            return badRequest("No existe plato con ese nombre");
+        }
+        return ok(toJson(plato));
+    }
+    
 //POST
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addPlato()
@@ -44,6 +52,7 @@ public class Platos extends Controller {
             newPlato.precio = Float.parseFloat(cadena1);
             String cadena2 = json.findPath("stock").textValue();
             newPlato.stock = Integer.parseInt(cadena2);
+            newPlato.imagen = json.findPath("imagen").textValue();
             
             if(newPlato.nombre == null) {
                 return badRequest("Missing parameter [nombre]");
@@ -83,6 +92,7 @@ public class Platos extends Controller {
         plato.precio = Float.parseFloat(cadena1);
         String cadena2 = json.findPath("stock").textValue();
         plato.stock = Integer.parseInt(cadena2);
+        plato.imagen = json.findPath("imagen").textValue();
         
         plato.update(id);
         return ok("se edito");

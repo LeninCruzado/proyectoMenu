@@ -21,6 +21,9 @@ public class Postre extends Model {
     @Constraints.Required(message="Debe ingresar el stock")
     public Integer stock;
     
+    @Constraints.Required(message="Debe ingresar el stock")
+    public String imagen;
+    
     // Generic query helper for entity with id long
     public static Model.Finder<Long,Postre> find = new Model.Finder<Long,Postre>(Long.class, Postre.class);
     

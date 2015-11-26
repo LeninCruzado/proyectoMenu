@@ -28,6 +28,14 @@ public class Entradas extends Controller {
         return ok(toJson(entrada));
     }
     
+    public static Result getEntradaNombre(String nombre){
+        Entrada entrada = Entrada.find.where().eq("nombre", nombre).findUnique();
+        if(entrada == null) {
+            return badRequest("No existe entrada con ese nombre");
+        }
+        return ok(toJson(entrada));
+    }
+    
 //POST
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addEntrada()
@@ -44,6 +52,7 @@ public class Entradas extends Controller {
             newEntrada.precio = Float.parseFloat(cadena1);
             String cadena2 = json.findPath("stock").textValue();
             newEntrada.stock = Integer.parseInt(cadena2);
+            newEntrada.imagen = json.findPath("imagen").textValue();
             
             if(newEntrada.nombre == null) {
                 return badRequest("Missing parameter [nombre]");
@@ -83,6 +92,7 @@ public class Entradas extends Controller {
         entrada.precio = Float.parseFloat(cadena1);
         String cadena2 = json.findPath("stock").textValue();
         entrada.stock = Integer.parseInt(cadena2);
+        entrada.imagen = json.findPath("imagen").textValue();
         
         entrada.update(id);
         return ok("se edito");

@@ -14,7 +14,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class Home extends Controller {
 //GET
-
     public static Result index() {
         return ok(index.render());
     }
@@ -22,11 +21,11 @@ public class Home extends Controller {
 //POST
     public static Result ingresar(){
         JsonNode json = request().body().asJson();
-        //Debe ingresa el usuario y la clave
-        Login login = new Login();
-        login.login = json.findPath("nombre").textValue();
-        login.password = json.findPath("password").textValue();
         
+        Login login = new Login();
+        login.login = json.findPath("login").textValue();
+        login.password = json.findPath("password").textValue();
+        //Debe ingresa el usuario y la clave
         if(login.login == "" || login.password == "") {
             return badRequest("ingresar login y password");
         }
@@ -38,15 +37,15 @@ public class Home extends Controller {
         }
         
         //login correcto, se setean las variables de session
-        session("login", usuario.login);
         session("user", usuario.nombre);
+        session("login", usuario.login);
         session("tipo", usuario.getTipousuario(usuario.tipousuario.id).nombre);
     
         return ok("ingreso");//return redirect("/");
     }
  
     
-    // POST, cambia el password
+    // cambia el password
     @With(Autentificar.class)
     public static Result cambiar_password() {
         JsonNode json = request().body().asJson();
@@ -55,7 +54,6 @@ public class Home extends Controller {
         login.password_act = json.findPath("password_act").textValue();
         login.password_new = json.findPath("password_new").textValue();
         login.password_rep = json.findPath("password_rep").textValue();
-        
         
         if(login.password_act == "" || login.password_new == "" || login.password_rep == "") {
             return badRequest("Debe ingresar las claves");
@@ -78,11 +76,10 @@ public class Home extends Controller {
         return ok("clave cambiada");
     }
     
-    
     @With(Autentificar.class)
     public static Result salir(){
         session().clear();
-        return ok("session cerrada");   //return redirect("/");
+        return ok("session cerrada");//return redirect("/");
     }
 
 }

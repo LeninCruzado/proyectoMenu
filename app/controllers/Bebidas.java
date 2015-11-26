@@ -28,6 +28,14 @@ public class Bebidas extends Controller {
         return ok(toJson(bebida));
     }
     
+    public static Result getBebidaNombre(String nombre){
+        Bebida bebida = Bebida.find.where().eq("nombre", nombre).findUnique();
+        if(bebida == null) {
+            return badRequest("No existe bebida con ese nombre");
+        }
+        return ok(toJson(bebida));
+    }
+    
 //POST
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addBebida()
@@ -42,6 +50,7 @@ public class Bebidas extends Controller {
             newBebida.nombre = json.findPath("nombre").textValue();
             String cadena = json.findPath("stock").textValue();
             newBebida.stock = Integer.parseInt(cadena);
+            newBebida.imagen = json.findPath("imagen").textValue();
             
             if(newBebida.nombre == null) {
                 return badRequest("Missing parameter [nombre]");
@@ -79,6 +88,7 @@ public class Bebidas extends Controller {
         bebida.nombre = json.findPath("nombre").textValue();
         String cadena1 = json.findPath("stock").textValue();
         bebida.stock = Integer.parseInt(cadena1);
+        bebida.imagen = json.findPath("imagen").textValue();
         
         bebida.update(id);
         return ok("se edito");

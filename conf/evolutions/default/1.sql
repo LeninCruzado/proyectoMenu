@@ -7,6 +7,7 @@ create table bebida (
   id                        bigint not null,
   nombre                    varchar(255),
   stock                     integer,
+  imagen                    varchar(255),
   constraint pk_bebida primary key (id))
 ;
 
@@ -15,20 +16,8 @@ create table entrada (
   nombre                    varchar(255),
   precio                    float,
   stock                     integer,
+  imagen                    varchar(255),
   constraint pk_entrada primary key (id))
-;
-
-create table menu (
-  id                        bigint not null,
-  name                      varchar(255),
-  created                   timestamp,
-  updated                   timestamp,
-  tipo_menu_id              bigint,
-  entrada_id                bigint,
-  plato_id                  bigint,
-  bebida_id                 bigint,
-  postre_id                 bigint,
-  constraint pk_menu primary key (id))
 ;
 
 create table plato (
@@ -36,6 +25,7 @@ create table plato (
   nombre                    varchar(255),
   precio                    float,
   stock                     integer,
+  imagen                    varchar(255),
   constraint pk_plato primary key (id))
 ;
 
@@ -43,6 +33,7 @@ create table postre (
   id                        bigint not null,
   nombre                    varchar(255),
   stock                     integer,
+  imagen                    varchar(255),
   constraint pk_postre primary key (id))
 ;
 
@@ -82,8 +73,6 @@ create sequence bebida_seq;
 
 create sequence entrada_seq;
 
-create sequence menu_seq;
-
 create sequence plato_seq;
 
 create sequence postre_seq;
@@ -96,18 +85,8 @@ create sequence tipousuario_seq;
 
 create sequence usuario_seq;
 
-alter table menu add constraint fk_menu_tipoMenu_1 foreign key (tipo_menu_id) references tipo_menu (id) on delete restrict on update restrict;
-create index ix_menu_tipoMenu_1 on menu (tipo_menu_id);
-alter table menu add constraint fk_menu_entrada_2 foreign key (entrada_id) references entrada (id) on delete restrict on update restrict;
-create index ix_menu_entrada_2 on menu (entrada_id);
-alter table menu add constraint fk_menu_plato_3 foreign key (plato_id) references plato (id) on delete restrict on update restrict;
-create index ix_menu_plato_3 on menu (plato_id);
-alter table menu add constraint fk_menu_bebida_4 foreign key (bebida_id) references bebida (id) on delete restrict on update restrict;
-create index ix_menu_bebida_4 on menu (bebida_id);
-alter table menu add constraint fk_menu_postre_5 foreign key (postre_id) references postre (id) on delete restrict on update restrict;
-create index ix_menu_postre_5 on menu (postre_id);
-alter table usuario add constraint fk_usuario_tipousuario_6 foreign key (tipousuario_id) references tipousuario (id) on delete restrict on update restrict;
-create index ix_usuario_tipousuario_6 on usuario (tipousuario_id);
+alter table usuario add constraint fk_usuario_tipousuario_1 foreign key (tipousuario_id) references tipousuario (id) on delete restrict on update restrict;
+create index ix_usuario_tipousuario_1 on usuario (tipousuario_id);
 
 
 
@@ -118,8 +97,6 @@ SET REFERENTIAL_INTEGRITY FALSE;
 drop table if exists bebida;
 
 drop table if exists entrada;
-
-drop table if exists menu;
 
 drop table if exists plato;
 
@@ -138,8 +115,6 @@ SET REFERENTIAL_INTEGRITY TRUE;
 drop sequence if exists bebida_seq;
 
 drop sequence if exists entrada_seq;
-
-drop sequence if exists menu_seq;
 
 drop sequence if exists plato_seq;
 

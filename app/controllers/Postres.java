@@ -28,6 +28,14 @@ public class Postres extends Controller {
         return ok(toJson(postre));
     }
     
+    public static Result getPostreNombre(String nombre){
+        Postre postre = Postre.find.where().eq("nombre", nombre).findUnique();
+        if(postre == null) {
+            return badRequest("No existe postre con ese nombre");
+        }
+        return ok(toJson(postre));
+    }
+    
 //POST
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addPostre()
@@ -42,6 +50,7 @@ public class Postres extends Controller {
             newPostre.nombre = json.findPath("nombre").textValue();
             String cadena = json.findPath("stock").textValue();
             newPostre.stock = Integer.parseInt(cadena);
+            newPostre.imagen = json.findPath("imagen").textValue();
 
             if(newPostre.nombre == null) {
                 return badRequest("Missing parameter [nombre]");
@@ -79,6 +88,7 @@ public class Postres extends Controller {
         postre.nombre = json.findPath("nombre").textValue();
         String cadena1 = json.findPath("stock").textValue();
         postre.stock = Integer.parseInt(cadena1);
+        postre.imagen = json.findPath("imagen").textValue();
         
         postre.update(id);
         return ok("se edito");

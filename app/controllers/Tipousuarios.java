@@ -16,7 +16,7 @@ import static play.libs.Json.toJson;
 import com.fasterxml.jackson.databind.JsonNode;
 
 
-//@With(Autorizar.class)
+@With(AutentificarAdm.class)
   public class Tipousuarios extends Controller {
 
 //GET
@@ -27,6 +27,14 @@ import com.fasterxml.jackson.databind.JsonNode;
     
     public static Result getTipousuario(Long id){
         Tipousuario tipousuario = Tipousuario.find.byId(id);
+        return ok(toJson(tipousuario));
+    }
+    
+    public static Result getTipousuarioNombre(String nombre){
+        Tipousuario tipousuario = Tipousuario.find.where().eq("nombre", nombre).findUnique();
+        if(tipousuario == null) {
+            return badRequest("No existe tipousuario con ese nombre");
+        }
         return ok(toJson(tipousuario));
     }
 
@@ -47,7 +55,7 @@ import com.fasterxml.jackson.databind.JsonNode;
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newTipousuario.save();
-                return redirect("/promociones");
+                return ok("tipousuario se guardo");
             }
         }
      }
@@ -72,7 +80,7 @@ import com.fasterxml.jackson.databind.JsonNode;
         Long id = Long.parseLong(cadena);
         
         Tipousuario.find.ref(id).delete();
-        return redirect("/promociones");
+        return ok("se elimino");
     }
 
 }

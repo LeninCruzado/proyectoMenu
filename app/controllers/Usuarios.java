@@ -15,7 +15,7 @@ import play.libs.Json.*;
 import static play.libs.Json.toJson;
 import com.fasterxml.jackson.databind.JsonNode;
 
-//@With(Autorizar.class)
+@With(AutentificarAdm.class)
 public class Usuarios extends Controller {
 
 //GET
@@ -26,6 +26,14 @@ public class Usuarios extends Controller {
     
     public static Result getUsuario(Long id){
         Usuario usuario = Usuario.find.byId(id);
+        return ok(toJson(usuario));
+    }
+    
+    public static Result getUsuarioNombre(String nombre){
+        Usuario usuario = Usuario.find.where().eq("nombre", nombre).findUnique();
+        if(usuario == null) {
+            return badRequest("No existe usuario con ese nombre");
+        }
         return ok(toJson(usuario));
     }
 
@@ -44,8 +52,9 @@ public class Usuarios extends Controller {
             newUsuario.login = json.findPath("login").textValue();
             newUsuario.password = json.findPath("password").textValue();
             newUsuario.email = json.findPath("email").textValue();
-            String cadena = json.findPath("tipousuario").textValue();
-            newUsuario.tipousuario.id = Long.parseLong(cadena);
+            String cadena = json.findPath("tipousuario").textValue();//tipousuario debe ser un numero
+            newUsuario.tipousuario = Tipousuario.find.byId(Long.parseLong(cadena));
+            
             
             if(newUsuario.nombre == null) {
                 return badRequest("Missing parameter [nombre]");
