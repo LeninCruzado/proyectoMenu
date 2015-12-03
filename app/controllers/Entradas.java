@@ -62,43 +62,24 @@ public class Entradas extends Controller {
         }
     }
     
-    public static Result sacarStockEntrada(){
-        JsonNode json = request().body().asJson();
-        String cadena = json.findPath("id").textValue();
-        Long id = Long.parseLong(cadena);
-        
-        Entrada entrada = Entrada.find.byId(id);//if id existe en db
-        
-        if(entrada != null){
-            String cadena2 = json.findPath("cantidad").textValue();
-            int cantidad = Integer.parseInt(cadena2);
-            if(entrada.disminuirStock(cantidad)){
-                entrada.update(id);
-                return ok("stock dismunuyo en 1");
-            }else{
-                return ok("no hay stock");
-            }
-        }else{
-            return ok("no se encontro entrada");
-        }
-    }
-    
     public static  Result editEntrada(){
         JsonNode json = request().body().asJson();
         String cadena = json.findPath("id").textValue();
         Long id = Long.parseLong(cadena);
         
         Entrada entrada = Entrada.find.byId(id);
-        
-        entrada.nombre = json.findPath("nombre").textValue();
-        String cadena1 = json.findPath("precio").textValue();
-        entrada.precio = Float.parseFloat(cadena1);
-        String cadena2 = json.findPath("stock").textValue();
-        entrada.stock = Integer.parseInt(cadena2);
-        entrada.imagen = json.findPath("imagen").textValue();
-        
-        entrada.update(id);
-        return ok("se edito");
+
+        if(entrada != null){
+            entrada.nombre = json.findPath("nombre").textValue();
+            String cadena1 = json.findPath("precio").textValue();
+            entrada.precio = Float.parseFloat(cadena1);
+            String cadena2 = json.findPath("stock").textValue();
+            entrada.stock = Integer.parseInt(cadena2);
+            entrada.imagen = json.findPath("imagen").textValue();
+            
+            entrada.update(id);
+            return ok("se edito");    
+        }else return ok("no se encontro");
     }
     
     public static Result deleteEntrada() {

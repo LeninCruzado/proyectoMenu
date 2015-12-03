@@ -15,14 +15,17 @@ public class Pedido extends Model {
     @Id
     public Long id;
     
-    @Constraints.Required(message="Debe ingresar el nombre")
-    public String nombre;
-    
-    @Constraints.Required(message="Debe ingresar la descripcion")
-    public String descripcion;
-    
     @Constraints.Required(message="Debe ingresar la descripcion")
     public String estado;
+    
+    @Constraints.Required(message="Debe ingresar la descripcion")
+    public String tipo;
+    
+    @ManyToOne
+    public Cliente cliente;
+	public Cliente getCliente(Long id) {
+		return Cliente.find.where().idEq(id).findUnique();
+	}
     
     @ManyToOne
     public Plato plato;

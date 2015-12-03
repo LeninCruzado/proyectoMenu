@@ -29,7 +29,7 @@ public class Cliente extends Model {
     public String email;
     
     public String direccion;
-    public String telf;
+    public String telfono;
     
 	
     @ManyToOne
@@ -40,6 +40,6 @@ public class Cliente extends Model {
 	}
 
     // Generic query helper for entity with id Long
-    public static Model.Finder<Long,Usuario> find = new Model.Finder<Long,Usuario>(Long.class, Usuario.class);
+    public static Model.Finder<Long,Cliente> find = new Model.Finder<Long,Cliente>(Long.class, Cliente.class);
 
 }

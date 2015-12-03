@@ -62,43 +62,24 @@ public class Platos extends Controller {
         }
      }
     
-    public static Result sacarStockPlato(){
-        JsonNode json = request().body().asJson();
-        String cadena = json.findPath("id").textValue();
-        Long id = Long.parseLong(cadena);
-        
-        Plato plato = Plato.find.byId(id);//if id existe en db
-        
-        if(plato != null){
-            String cadena2 = json.findPath("cantidad").textValue();
-            int cantidad = Integer.parseInt(cadena2);
-            if(plato.disminuirStock(cantidad)){
-                plato.update(id);
-                return ok("stock dismunuyo en 1");
-            }else{
-                return ok("no hay stock");
-            }
-        }else{
-            return ok("no se encontro plato");
-        }
-    }
-    
     public static  Result editPlato(){
         JsonNode json = request().body().asJson();
         String cadena = json.findPath("id").textValue();
         Long id = Long.parseLong(cadena);
         
         Plato plato = Plato.find.byId(id);
-        
-        plato.nombre = json.findPath("nombre").textValue();
-        String cadena1 = json.findPath("precio").textValue();
-        plato.precio = Float.parseFloat(cadena1);
-        String cadena2 = json.findPath("stock").textValue();
-        plato.stock = Integer.parseInt(cadena2);
-        plato.imagen = json.findPath("imagen").textValue();
-        
-        plato.update(id);
-        return ok("se edito");
+
+        if(plato != null){
+            plato.nombre = json.findPath("nombre").textValue();
+            String cadena1 = json.findPath("precio").textValue();
+            plato.precio = Float.parseFloat(cadena1);
+            String cadena2 = json.findPath("stock").textValue();
+            plato.stock = Integer.parseInt(cadena2);
+            plato.imagen = json.findPath("imagen").textValue();
+            
+            plato.update(id);
+            return ok("se edito");   
+        }else return ok("no se encontro");
     }
     
     public static Result deletePlato() {

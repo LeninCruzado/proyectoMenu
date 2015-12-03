@@ -60,41 +60,22 @@ public class Postres extends Controller {
         }
      }
     
-    public static Result sacarStockPostre(){
-        JsonNode json = request().body().asJson();
-        String cadena = json.findPath("id").textValue();
-        Long id = Long.parseLong(cadena);
-        
-        Postre postre = Postre.find.byId(id);//if id existe en db
-        
-        if(postre != null){
-            String cadena2 = json.findPath("cantidad").textValue();
-            int cantidad = Integer.parseInt(cadena2);
-            if(postre.disminuirStock(cantidad)){
-                postre.update(id);
-                return ok("stock dismunuyo en 1");
-            }else{
-                return ok("no hay stock");
-            }
-        }else{
-            return ok("no se encontro postre");
-        }
-    }
-    
     public static  Result editPostre(){
         JsonNode json = request().body().asJson();
         String cadena = json.findPath("id").textValue();
         Long id = Long.parseLong(cadena);
         
         Postre postre = Postre.find.byId(id);
-        
-        postre.nombre = json.findPath("nombre").textValue();
-        String cadena1 = json.findPath("stock").textValue();
-        postre.stock = Integer.parseInt(cadena1);
-        postre.imagen = json.findPath("imagen").textValue();
-        
-        postre.update(id);
-        return ok("se edito");
+
+        if(postre != null){
+            postre.nombre = json.findPath("nombre").textValue();
+            String cadena1 = json.findPath("stock").textValue();
+            postre.stock = Integer.parseInt(cadena1);
+            postre.imagen = json.findPath("imagen").textValue();
+            
+            postre.update(id);
+            return ok("se edito");    
+        }else return ok("no se encontro");
     }
     
     public static Result deletePostre() {

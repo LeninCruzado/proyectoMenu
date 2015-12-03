@@ -28,6 +28,14 @@ public class Promociones extends Controller {
         return ok(toJson(promocion));
     }
     
+        public static Result getPromocionNombre(String nombre){
+        Promocion promocion = Promocion.find.where().eq("nombre", nombre).findUnique();
+        if(promocion == null) {
+            return badRequest("No existe promocion con ese nombre");
+        }
+        return ok(toJson(promocion));
+    }
+    
 //POST
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addPromocion()
@@ -79,17 +87,19 @@ public class Promociones extends Controller {
         Long id = Long.parseLong(cadena);
         
         Promocion promocion = Promocion.find.byId(id);
-        
-        promocion.nombre = json.findPath("nombre").textValue();
-        String cadena1 = json.findPath("precioAnt").textValue();
-        promocion.precioAnt = Float.parseFloat(cadena1);
-        String cadena2 = json.findPath("precioAct").textValue();
-        promocion.precioAct = Float.parseFloat(cadena2);
-        String cadena3 = json.findPath("stock").textValue();
-        promocion.stock = Integer.parseInt(cadena3);
-        
-        promocion.update(id);
-        return ok("se edito");
+
+        if(promocion != null){
+            promocion.nombre = json.findPath("nombre").textValue();
+            String cadena1 = json.findPath("precioAnt").textValue();
+            promocion.precioAnt = Float.parseFloat(cadena1);
+            String cadena2 = json.findPath("precioAct").textValue();
+            promocion.precioAct = Float.parseFloat(cadena2);
+            String cadena3 = json.findPath("stock").textValue();
+            promocion.stock = Integer.parseInt(cadena3);
+            
+            promocion.update(id);
+            return ok("se edito");    
+        }else return ok("no se encontro");
     }
     
     public static Result deletePromocion() {

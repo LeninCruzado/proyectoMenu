@@ -44,8 +44,6 @@ public class Home extends Controller {
         return ok("ingreso");//return redirect("/");
     }
  
-    
-    // cambia el password
     @With(Autentificar.class)
     public static Result cambiar_password() {
         JsonNode json = request().body().asJson();
@@ -64,16 +62,26 @@ public class Home extends Controller {
             return badRequest("La clave nueva debe ser igual a la repetida");
         }
 
-        // Busca el usuario logueado y compara la clave con la actual
-        Usuario usuario = Usuario.find.where().eq("login", session("login")).eq("password", login.password_act).findUnique();
-        if(usuario == null) {
-            return badRequest("La clave actual no es la del usuario logueado");
+        if( session("tipo").equals("Cliente") ){
+            Cliente cliente = Cliente.find.where().eq("login", session("login")).eq("password", login.password_act).findUnique();
+            if(cliente == null) {
+                return badRequest("La clave actual no es la del cliente logueado");
+            }
+    
+            cliente.password = login.password_act;
+            cliente.update(cliente.id);//usuario.save();
+            return ok("clave cambiada");
         }
-
-        // Todo correcto, se cambia la clave
-        usuario.password = login.password_act;
-        usuario.save();//usuario.update(usuario.id);
-        return ok("clave cambiada");
+        else{
+            Usuario usuario = Usuario.find.where().eq("login", session("login")).eq("password", login.password_act).findUnique();
+            if(usuario == null) {
+                return badRequest("La clave actual no es la del usuario logueado");
+            }
+    
+            usuario.password = login.password_act;
+            usuario.update(usuario.id);//usuario.save();
+            return ok("clave cambiada");
+        }
     }
     
     @With(Autentificar.class)

@@ -13,7 +13,6 @@ GET     /entradas               controllers.Entradas.getEntradas()
 GET     /entrada/:id           	controllers.Entradas.getEntrada(id: Long)
 GET     /entradaNombre/:nombre  controllers.Entradas.getEntradaNombre(nombre: String)
 POST	/addEntrada				controllers.Entradas.addEntrada()
-POST	/sacarStockEntrada		controllers.Entradas.sacarStockEntrada()
 POST	/editEntrada			controllers.Entradas.editEntrada()
 POST    /deleteEntrada    		controllers.Entradas.deleteEntrada()
 
@@ -22,7 +21,6 @@ GET     /platos                 controllers.Platos.getPlatos()
 GET     /plato/:id              controllers.Platos.getPlato(id: Long)
 GET     /platoNombre/:nombre  	controllers.Platos.getPlatoNombre(nombre: String)
 POST	/addPlato				controllers.Platos.addPlato()
-POST	/sacarStockPlato		controllers.Platos.sacarStockPlato()
 POST	/editPlato				controllers.Platos.editPlato()
 POST    /deletePlato    		controllers.Platos.deletePlato()
 
@@ -31,7 +29,6 @@ GET     /bebidas           		controllers.Bebidas.getBebidas()
 GET     /bebida/:id				controllers.Bebidas.getBebida(id: Long)
 GET     /bebidaNombre/:nombre  	controllers.Bebidas.getBebidaNombre(nombre: String)
 POST	/addBebida				controllers.Bebidas.addBebida()
-POST	/sacarStockBebida		controllers.Bebidas.sacarStockBebida()
 POST	/editBebida				controllers.Bebidas.editBebida()
 POST    /deleteBebida    		controllers.Bebidas.deleteBebida()
 
@@ -40,7 +37,6 @@ GET     /postres                controllers.Postres.getPostres()
 GET     /postre/:id             controllers.Postres.getPostre(id: Long)
 GET     /postreNombre/:nombre  	controllers.Postres.getPostreNombre(nombre: String)
 POST	/addPostre				controllers.Postres.addPostre()
-POST	/sacarStockPostre		controllers.Postres.sacarStockPostre()
 POST	/editPostre				controllers.Postres.editPostre()
 POST    /deletePostre	    	controllers.Postres.deletePostre()
 
@@ -48,7 +44,6 @@ POST    /deletePostre	    	controllers.Postres.deletePostre()
 GET 	/promociones			controllers.Promociones.getPromociones()
 GET     /promocion/:id       	controllers.Promociones.getPromocion(id: Long)
 POST	/addPromocion			controllers.Promociones.addPromocion()
-POST	/sacarStockPromocion	controllers.Promociones.sacarStockPromocion()
 POST	/editPromocion			controllers.Promociones.editPromocion()
 POST    /deletePromocion    	controllers.Promociones.deletePromocion()
 
@@ -67,6 +62,36 @@ GET     /usuarioNombre/:nombre  	controllers.Usuarios.getUsuarioNombre(nombre: S
 POST	/addUsuario					controllers.Usuarios.addUsuario()
 POST	/editUsuario				controllers.Usuarios.editUsuario()
 POST    /deleteUsuario    			controllers.Usuarios.deleteUsuario()
-	
+
+#Usuarios
+GET 	/clientes					controllers.Clientes.getClientes()
+GET     /cliente/:id       			controllers.Clientes.getCliente(id: Long)
+GET     /clienteNombre/:nombre  	controllers.Clientes.getClienteNombre(nombre: String)
+POST	/addCliente					controllers.Clientes.addCliente()
+POST	/editCliente				controllers.Clientes.editCliente()
+POST    /deleteCliente    			controllers.Clientes.deleteCliente()
+
+#Tipomenus
+GET 	/tipomenus					controllers.Tipomenus.getTipomenus()
+GET     /tipomenu/:id       		controllers.Tipomenus.getTipomenu(id: Long)
+GET     /tipomenusNombre/:nombre  	controllers.Tipomenus.getTipomenuNombre(nombre: String)
+POST	/addTipomenus				controllers.Tipomenus.addTipomenu()
+POST	/editTipomenu				controllers.Tipomenus.editTipomenu()
+POST    /deleteTipomenu    			controllers.Tipomenus.deleteTipomenu()
+
+
+#Menus
+GET 	/menus						controllers.Menus.getMenus()
+GET     /menu/:id       			controllers.Menus.getMenu(id: Long)
+GET     /menuNombre/:nombre  		controllers.Menus.getMenuNombre(nombre: String)
+POST	/addMenu					controllers.Menus.addMenu()
+POST	/editMenu					controllers.Menus.editMenu()
+POST    /deleteMenu    				controllers.Menus.deleteMenu()
+
+#Pedidos
+GET 	/pedidos					controllers.Pedidos.getPedidos()
+GET     /pedido/:id       			controllers.Pedidos.getPedido(id: Long)
+#GET		/pedidosEstado/:estado		controllers.Pedidos.getPedidoEstado(estado: String)
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /*file               controllers.Assets.at(path="/public", file)

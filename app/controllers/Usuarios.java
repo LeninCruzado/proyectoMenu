@@ -70,16 +70,18 @@ public class Usuarios extends Controller {
         Long id = Long.parseLong(cadena);
         
         Usuario usuario = Usuario.find.byId(id);
-        
-        usuario.nombre = json.findPath("nombre").textValue();
-        usuario.login = json.findPath("login").textValue();
-        usuario.password = json.findPath("password").textValue();
-        usuario.email = json.findPath("email").textValue();
-        String cadena2 = json.findPath("tipousuario").textValue();
-        usuario.tipousuario.id = Long.parseLong(cadena2);
-        
-        usuario.update(id);
-        return ok("se edito");
+
+        if(usuario != null){
+            usuario.nombre = json.findPath("nombre").textValue();
+            usuario.login = json.findPath("login").textValue();
+            usuario.password = json.findPath("password").textValue();
+            usuario.email = json.findPath("email").textValue();
+            String cadena2 = json.findPath("tipousuario").textValue();
+            usuario.tipousuario = Tipousuario.find.byId(Long.parseLong(cadena2));
+            
+            usuario.update(id);
+            return ok("se edito");    
+        }else return ok("no se encontro");
     }
     
     public static Result deleteUsuario() {

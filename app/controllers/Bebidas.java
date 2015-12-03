@@ -59,27 +59,6 @@ public class Bebidas extends Controller {
             }
         }
      }
-     
-     public static Result sacarStockBebida(){
-        JsonNode json = request().body().asJson();
-        String cadena = json.findPath("id").textValue();
-        Long id = Long.parseLong(cadena);
-        
-        Bebida bebida = Bebida.find.byId(id);//if id existe en db
-        
-        if(bebida != null){
-            String cadena2 = json.findPath("cantidad").textValue();
-            int cantidad = Integer.parseInt(cadena2);
-            if(bebida.disminuirStock(cantidad)){
-                bebida.update(id);
-                return ok("stock dismunuyo en 1");
-            }else{
-                return ok("no hay stock");
-            }
-        }else{
-            return ok("no se encontro bebida");
-        }
-    }
     
     public static  Result editBebida(){
         JsonNode json = request().body().asJson();
@@ -88,13 +67,15 @@ public class Bebidas extends Controller {
         
         Bebida bebida = Bebida.find.byId(id);
         
-        bebida.nombre = json.findPath("nombre").textValue();
-        String cadena1 = json.findPath("stock").textValue();
-        bebida.stock = Integer.parseInt(cadena1);
-        bebida.imagen = json.findPath("imagen").textValue();
-        
-        bebida.update(id);
-        return ok("se edito");
+        if(bebida != null){
+            bebida.nombre = json.findPath("nombre").textValue();
+            String cadena1 = json.findPath("stock").textValue();
+            bebida.stock = Integer.parseInt(cadena1);
+            bebida.imagen = json.findPath("imagen").textValue();
+            
+            bebida.update(id);
+            return ok("se edito");   
+        }else return ok("no se encontro");
     }
      
     public static Result deleteBebida() {

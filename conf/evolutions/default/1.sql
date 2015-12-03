@@ -18,7 +18,7 @@ create table cliente (
   password                  varchar(255),
   email                     varchar(255),
   direccion                 varchar(255),
-  telf                      varchar(255),
+  telfono                   varchar(255),
   tipousuario_id            bigint,
   constraint pk_cliente primary key (id))
 ;
@@ -35,15 +35,20 @@ create table entrada (
 create table menu (
   id                        bigint not null,
   nombre                    varchar(255),
+  precio                    float,
   tipomenu_id               bigint,
+  plato_id                  bigint,
+  entrada_id                bigint,
+  bebida_id                 bigint,
+  postre_id                 bigint,
   constraint pk_menu primary key (id))
 ;
 
 create table pedido (
   id                        bigint not null,
-  nombre                    varchar(255),
-  descripcion               varchar(255),
   estado                    varchar(255),
+  tipo                      varchar(255),
+  cliente_id                bigint,
   plato_id                  bigint,
   cant_plato                integer,
   entrada_id                bigint,
@@ -134,20 +139,30 @@ alter table cliente add constraint fk_cliente_tipousuario_1 foreign key (tipousu
 create index ix_cliente_tipousuario_1 on cliente (tipousuario_id);
 alter table menu add constraint fk_menu_tipomenu_2 foreign key (tipomenu_id) references tipomenu (id) on delete restrict on update restrict;
 create index ix_menu_tipomenu_2 on menu (tipomenu_id);
-alter table pedido add constraint fk_pedido_plato_3 foreign key (plato_id) references plato (id) on delete restrict on update restrict;
-create index ix_pedido_plato_3 on pedido (plato_id);
-alter table pedido add constraint fk_pedido_entrada_4 foreign key (entrada_id) references entrada (id) on delete restrict on update restrict;
-create index ix_pedido_entrada_4 on pedido (entrada_id);
-alter table pedido add constraint fk_pedido_bebida_5 foreign key (bebida_id) references bebida (id) on delete restrict on update restrict;
-create index ix_pedido_bebida_5 on pedido (bebida_id);
-alter table pedido add constraint fk_pedido_postre_6 foreign key (postre_id) references postre (id) on delete restrict on update restrict;
-create index ix_pedido_postre_6 on pedido (postre_id);
-alter table pedido add constraint fk_pedido_menu_7 foreign key (menu_id) references menu (id) on delete restrict on update restrict;
-create index ix_pedido_menu_7 on pedido (menu_id);
-alter table pedido add constraint fk_pedido_promocion_8 foreign key (promocion_id) references promocion (id) on delete restrict on update restrict;
-create index ix_pedido_promocion_8 on pedido (promocion_id);
-alter table usuario add constraint fk_usuario_tipousuario_9 foreign key (tipousuario_id) references tipousuario (id) on delete restrict on update restrict;
-create index ix_usuario_tipousuario_9 on usuario (tipousuario_id);
+alter table menu add constraint fk_menu_plato_3 foreign key (plato_id) references plato (id) on delete restrict on update restrict;
+create index ix_menu_plato_3 on menu (plato_id);
+alter table menu add constraint fk_menu_entrada_4 foreign key (entrada_id) references entrada (id) on delete restrict on update restrict;
+create index ix_menu_entrada_4 on menu (entrada_id);
+alter table menu add constraint fk_menu_bebida_5 foreign key (bebida_id) references bebida (id) on delete restrict on update restrict;
+create index ix_menu_bebida_5 on menu (bebida_id);
+alter table menu add constraint fk_menu_postre_6 foreign key (postre_id) references postre (id) on delete restrict on update restrict;
+create index ix_menu_postre_6 on menu (postre_id);
+alter table pedido add constraint fk_pedido_cliente_7 foreign key (cliente_id) references cliente (id) on delete restrict on update restrict;
+create index ix_pedido_cliente_7 on pedido (cliente_id);
+alter table pedido add constraint fk_pedido_plato_8 foreign key (plato_id) references plato (id) on delete restrict on update restrict;
+create index ix_pedido_plato_8 on pedido (plato_id);
+alter table pedido add constraint fk_pedido_entrada_9 foreign key (entrada_id) references entrada (id) on delete restrict on update restrict;
+create index ix_pedido_entrada_9 on pedido (entrada_id);
+alter table pedido add constraint fk_pedido_bebida_10 foreign key (bebida_id) references bebida (id) on delete restrict on update restrict;
+create index ix_pedido_bebida_10 on pedido (bebida_id);
+alter table pedido add constraint fk_pedido_postre_11 foreign key (postre_id) references postre (id) on delete restrict on update restrict;
+create index ix_pedido_postre_11 on pedido (postre_id);
+alter table pedido add constraint fk_pedido_menu_12 foreign key (menu_id) references menu (id) on delete restrict on update restrict;
+create index ix_pedido_menu_12 on pedido (menu_id);
+alter table pedido add constraint fk_pedido_promocion_13 foreign key (promocion_id) references promocion (id) on delete restrict on update restrict;
+create index ix_pedido_promocion_13 on pedido (promocion_id);
+alter table usuario add constraint fk_usuario_tipousuario_14 foreign key (tipousuario_id) references tipousuario (id) on delete restrict on update restrict;
+create index ix_usuario_tipousuario_14 on usuario (tipousuario_id);
 
 
 
