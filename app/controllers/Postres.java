@@ -40,7 +40,6 @@ public class Postres extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addPostre()
     {
-        //Promocion newPostre = Json.fromJson(request().body().asJson(), Postre.class);
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json data");
@@ -52,7 +51,7 @@ public class Postres extends Controller {
             newPostre.stock = Integer.parseInt(cadena);
             newPostre.imagen = json.findPath("imagen").textValue();
 
-            if(newPostre.nombre == null) {
+            if(newPostre.nombre == null || newPostre.nombre.equals("")) {
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newPostre.save();
@@ -68,13 +67,17 @@ public class Postres extends Controller {
         
         Postre postre = Postre.find.byId(id);//if id existe en db
         
-        if(postre.stock>0){
-            postre.stock = postre.stock - 1;
-            postre.update(id);
-            return ok("stock dismunuyo en 1");
-        }
-        else{
-            return ok("no hay stock");
+        if(postre != null){
+            String cadena2 = json.findPath("cantidad").textValue();
+            int cantidad = Integer.parseInt(cadena2);
+            if(postre.disminuirStock(cantidad)){
+                postre.update(id);
+                return ok("stock dismunuyo en 1");
+            }else{
+                return ok("no hay stock");
+            }
+        }else{
+            return ok("no se encontro postre");
         }
     }
     

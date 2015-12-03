@@ -40,7 +40,6 @@ public class Entradas extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addEntrada()
     {
-        //Promocion newEntrada = Json.fromJson(request().body().asJson(), Entrada.class);
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json data");
@@ -54,7 +53,7 @@ public class Entradas extends Controller {
             newEntrada.stock = Integer.parseInt(cadena2);
             newEntrada.imagen = json.findPath("imagen").textValue();
             
-            if(newEntrada.nombre == null) {
+            if(newEntrada.nombre == null || newEntrada.nombre.equals("")) {
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newEntrada.save();
@@ -70,13 +69,17 @@ public class Entradas extends Controller {
         
         Entrada entrada = Entrada.find.byId(id);//if id existe en db
         
-        if(entrada.stock>0){
-            entrada.stock = entrada.stock - 1;
-            entrada.update(id);
-            return ok("stock dismunuyo en 1");
-        }
-        else{
-            return ok("no hay stock");
+        if(entrada != null){
+            String cadena2 = json.findPath("cantidad").textValue();
+            int cantidad = Integer.parseInt(cadena2);
+            if(entrada.disminuirStock(cantidad)){
+                entrada.update(id);
+                return ok("stock dismunuyo en 1");
+            }else{
+                return ok("no hay stock");
+            }
+        }else{
+            return ok("no se encontro entrada");
         }
     }
     

@@ -40,7 +40,6 @@ public class Platos extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addPlato()
     {
-        //Promocion newPlato = Json.fromJson(request().body().asJson(), Plato.class);
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json data");
@@ -54,7 +53,7 @@ public class Platos extends Controller {
             newPlato.stock = Integer.parseInt(cadena2);
             newPlato.imagen = json.findPath("imagen").textValue();
             
-            if(newPlato.nombre == null) {
+            if(newPlato.nombre == null || newPlato.nombre.equals("")) {
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newPlato.save();
@@ -70,13 +69,17 @@ public class Platos extends Controller {
         
         Plato plato = Plato.find.byId(id);//if id existe en db
         
-        if(plato.stock>0){
-            plato.stock = plato.stock - 1;
-            plato.update(id);
-            return ok("stock dismunuyo en 1");
-        }
-        else{
-            return ok("no hay stock");
+        if(plato != null){
+            String cadena2 = json.findPath("cantidad").textValue();
+            int cantidad = Integer.parseInt(cadena2);
+            if(plato.disminuirStock(cantidad)){
+                plato.update(id);
+                return ok("stock dismunuyo en 1");
+            }else{
+                return ok("no hay stock");
+            }
+        }else{
+            return ok("no se encontro plato");
         }
     }
     

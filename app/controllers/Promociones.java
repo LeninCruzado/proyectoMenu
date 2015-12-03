@@ -32,7 +32,6 @@ public class Promociones extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addPromocion()
     {
-        //Promocion newPromocion = Json.fromJson(request().body().asJson(), Promocion.class);
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json data");
@@ -49,7 +48,7 @@ public class Promociones extends Controller {
             String cadena3 = json.findPath("stock").textValue();
             newPromocion.stock = Integer.parseInt(cadena3);
             
-            if(newPromocion.nombre == null) {
+            if(newPromocion.nombre == null || newPromocion.nombre.equals("")) {
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newPromocion.save();

@@ -30,13 +30,12 @@ public class Entrada extends Model {
     // query generico helper for entity with id long
     public static Model.Finder<Long,Entrada> find = new Model.Finder<Long,Entrada>(Long.class, Entrada.class);
     
-    // Para usar en select list
-    public static Map<String,String> options() {
-        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for(Entrada c: Entrada.find.orderBy("name").findList()) {
-            options.put(c.id.toString(), c.nombre);
+    public boolean disminuirStock(int cant){
+        if(cant > stock){
+            return false;
+        }else{
+            stock = stock - cant;
+            return true;
         }
-        return options;
     }
-    
 }

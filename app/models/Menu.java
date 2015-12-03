@@ -28,5 +28,4 @@ public class Menu extends Model {
 
     // Generic query helper for entity with id Long
     public static Model.Finder<Long,Menu> find = new Model.Finder<Long,Menu>(Long.class, Menu.class);
-
 }

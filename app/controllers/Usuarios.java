@@ -41,7 +41,6 @@ public class Usuarios extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addUsuario()
     {
-        //Usuario newUsuario = Json.fromJson(request().body().asJson(), Usuario.class);
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json data");
@@ -56,7 +55,7 @@ public class Usuarios extends Controller {
             newUsuario.tipousuario = Tipousuario.find.byId(Long.parseLong(cadena));
             
             
-            if(newUsuario.nombre == null) {
+            if(newUsuario.nombre == null || newUsuario.nombre.equals("")) {
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newUsuario.save();

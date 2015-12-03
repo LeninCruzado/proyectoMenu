@@ -40,7 +40,6 @@ public class Bebidas extends Controller {
     @BodyParser.Of(BodyParser.Json.class)
     public static Result addBebida()
     {
-        //Promocion newBebida = Json.fromJson(request().body().asJson(), Bebida.class);
         JsonNode json = request().body().asJson();
         if(json == null) {
             return badRequest("Expecting Json data");
@@ -52,7 +51,7 @@ public class Bebidas extends Controller {
             newBebida.stock = Integer.parseInt(cadena);
             newBebida.imagen = json.findPath("imagen").textValue();
             
-            if(newBebida.nombre == null) {
+            if(newBebida.nombre == null || newBebida.nombre.equals("")) {
                 return badRequest("Missing parameter [nombre]");
             } else {
                 newBebida.save();
@@ -68,13 +67,17 @@ public class Bebidas extends Controller {
         
         Bebida bebida = Bebida.find.byId(id);//if id existe en db
         
-        if(bebida.stock>0){
-            bebida.stock = bebida.stock - 1;
-            bebida.update(id);
-            return ok("stock dismunuyo en 1");
-        }
-        else{
-            return ok("no hay stock");
+        if(bebida != null){
+            String cadena2 = json.findPath("cantidad").textValue();
+            int cantidad = Integer.parseInt(cadena2);
+            if(bebida.disminuirStock(cantidad)){
+                bebida.update(id);
+                return ok("stock dismunuyo en 1");
+            }else{
+                return ok("no hay stock");
+            }
+        }else{
+            return ok("no se encontro bebida");
         }
     }
     

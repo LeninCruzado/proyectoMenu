@@ -30,12 +30,21 @@ public class Plato extends Model {
     // Generic query helper for entity with id long
     public static Model.Finder<Long,Plato> find = new Model.Finder<Long,Plato>(Long.class, Plato.class);
 
+    public boolean disminuirStock(int cant){
+        if(cant > stock){
+            return false;
+        }else{
+            stock = stock - cant;
+            return true;
+        }
+    }
+    
     // Para usar en select list
-    public static Map<String,String> options() {
+    /*public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
         for(Plato c: Plato.find.orderBy("nombre").findList()) {
             options.put(c.id.toString(), c.nombre);
         }
         return options;
-    }
+    }*/
 }

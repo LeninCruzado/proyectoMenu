@@ -24,16 +24,49 @@ public class Pedido extends Model {
     @Constraints.Required(message="Debe ingresar la descripcion")
     public String estado;
     
+    @ManyToOne
+    public Plato plato;
+    public int cantPlato;
+	public Plato getPlato(Long id) {
+		return Plato.find.where().idEq(id).findUnique();
+	}
+    
+    @ManyToOne
+    public Entrada entrada;
+    public int cantEntrada;
+	public Entrada getEntrada(Long id) {
+		return Entrada.find.where().idEq(id).findUnique();
+	}
+    
+    @ManyToOne
+    public Bebida bebida;
+    public int cantBebida;
+	public Bebida getBebida(Long id) {
+		return Bebida.find.where().idEq(id).findUnique();
+	}
+    
+    @ManyToOne
+    public Postre postre;
+    public int cantPostre;
+	public Postre getPostre(Long id) {
+		return Postre.find.where().idEq(id).findUnique();
+	}
+    
+    @ManyToOne
+    public Menu menu;
+    public int cantMenu;
+	public Menu getMenu(Long id) {
+		return Menu.find.where().idEq(id).findUnique();
+	}
+    
+    @ManyToOne
+    public Promocion promocion;
+    public int cantPromocion;
+	public Promocion getPromocion(Long id) {
+		return Promocion.find.where().idEq(id).findUnique();
+	}
+    
 
     // Generic query helper for entity with id long
     public static Model.Finder<Long,Pedido> find = new Model.Finder<Long,Pedido>(Long.class, Pedido.class);
-
-    // Para usar en select list
-    public static Map<String,String> options() {
-        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for(Pedido c: Pedido.find.orderBy("nombre").findList()) {
-            options.put(c.id.toString(), c.nombre);
-        }
-        return options;
-    }
 }

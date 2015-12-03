@@ -27,6 +27,10 @@ public class Cliente extends Model {
 	@Constraints.Required(message="Debe ingresar el mail")
     @Constraints.Email
     public String email;
+    
+    public String direccion;
+    public String telf;
+    
 	
     @ManyToOne
 	@Constraints.Required(message="Debe ingresar el tipo de usuario")
